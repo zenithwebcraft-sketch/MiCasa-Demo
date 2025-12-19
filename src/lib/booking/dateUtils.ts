@@ -44,12 +44,26 @@ export const isSlotBusy = (
   durationMin: number,
   busyTimes: { start: string; end: string }[]
 ): boolean => {
-  const slotStart = timeStringToDate(dateStr, timeStr);
-  const slotEnd = addMinutes(slotStart, durationMin);
+  // Crear fechas en timezone de España (CET/CEST = UTC+1)
+  const slotStart = new Date(`${dateStr}T${timeStr}:00+01:00`);
+  const slotEnd = new Date(slotStart.getTime() + durationMin * 60000);
+  
+  console.log('🔍 Checking slot:', {
+    dateStr,
+    timeStr,
+    durationMin,
+    slotStart: slotStart.toISOString(),
+    slotEnd: slotEnd.toISOString(),
+  });
   
   return busyTimes.some((busy) => {
     const busyStart = new Date(busy.start);
     const busyEnd = new Date(busy.end);
+    
+    console.log('  📅 Comparing with busy:', {
+      busy: `${busyStart.toISOString()} - ${busyEnd.toISOString()}`,
+      overlap: slotStart < busyEnd && slotEnd > busyStart,
+    });
     
     // Slot overlap logic
     return (
