@@ -143,15 +143,16 @@ export const DateTimeSelection = ({
                   const available = isTimeSlotAvailable(time);
                   return (
                     <Button
-                      key={time}
-                      variant={selectedTime === time ? 'default' : available ? 'outline' : 'ghost'}
-                      className="w-full"
-                      onClick={() => available && handleTimeSelect(time)}
-                      disabled={!available}
-                    >
-                      {time}
-                      {!available && <span className="ml-1 text-xs">(ocupado)</span>}
+                        key={time}
+                        variant={selectedTime === time ? 'default' : available ? 'outline' : 'ghost'}
+                        className={`w-full ${!available ? 'opacity-40 cursor-not-allowed line-through' : ''}`}
+                        onClick={() => available && handleTimeSelect(time)}
+                        disabled={!available}
+                        >
+                        {time}
+                        {!available && <span className="ml-2 text-xs">🚫</span>}
                     </Button>
+
                   );
                 })}
               </div>
