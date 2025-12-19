@@ -5,7 +5,14 @@ export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary via-background to-muted" />
+     {/* Hero image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url(/images/vanyti/Tratamiento-de-pestanas-hero.jpg)" }}
+      />
+
+      {/* Overlay to keep text readable */}
+      <div className="absolute inset-0 bg-secondary/70 mix-blend-multiply" />
       
       {/* Decorative elements */}
       <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
