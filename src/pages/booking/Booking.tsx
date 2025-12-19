@@ -60,6 +60,7 @@ const handlePersonalDetailsSubmit = async (data: { phone: string; firstName: str
       phone: data.phone,
       firstName: data.firstName,
       lastName: data.lastName,
+      price: service.priceEUR,
     });
 
     if (response.success) {

@@ -110,6 +110,40 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const bookingId = `VNY-${Date.now().toString().slice(-8)}`;
 
+    // Enviar email de confirmación
+    try {
+    const emailDate = new Date(startTime).toLocaleDateString('es-ES', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    });
+    
+    const emailTime = new Date(startTime).toLocaleTimeString('es-ES', {
+        hour: '2-digit',
+        minute: '2-digit',
+    });
+
+    await fetch(`${process.env.VITE_APP_URL || ''}/api/booking/send-confirmation-email`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+        email,
+        firstName,
+        lastName,
+        serviceTitle,
+        date: emailDate,
+        time: emailTime,
+        bookingId,
+        price: req.body.price || '0',
+        }),
+    });
+    
+    console.log('✅ Confirmation email sent');
+    } catch (emailError) {
+    console.error('⚠️ Email sending failed (non-critical):', emailError);
+    // No fallar el booking si el email falla
+    }
     console.log('✅ Event created successfully:', event.data.id);
 
     return res.status(200).json({

@@ -63,6 +63,7 @@ export interface BookingApiRequest {
   phone: string;
   firstName: string;
   lastName: string;
+  price?: number;
   locationId?: string;
 }
 
