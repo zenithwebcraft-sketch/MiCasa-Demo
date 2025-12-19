@@ -12,7 +12,9 @@
       ],
       "icon": "Sparkles",
       "durationMin": 30,
-      "priceEUR": 15
+      "priceEUR": 15,
+      "image": "images/vanity/Depilacion-con-hilo.jpg",
+      "imageAlt": "Depilación con hilo en Vanyti Center Beauty"
     },
     {
       "id": "pestanas",
@@ -26,7 +28,9 @@
       ],
       "icon": "Eye",
       "durationMin": 60,
-      "priceEUR": 45
+      "priceEUR": 45,
+      "image": "images/vanity/Tratamiento-de-pestanas.jpg",
+      "imageAlt": "Tratamiento de Pestañas en Vanyti Center Beauty"
     },
     {
       "id": "cejas",
@@ -40,7 +44,9 @@
       ],
       "icon": "Brush",
       "durationMin": 60,
-      "priceEUR": 35
+      "priceEUR": 35,
+      "image": "images/vanity/Tratamiento-de-cejas.jpg",
+      "imageAlt": "Tratamiento de Cejas en Vanyti Center Beauty"
     },
     {
       "id": "manicura",
@@ -54,7 +60,9 @@
       ],
       "icon": "Hand",
       "durationMin": 60,
-      "priceEUR": 25
+      "priceEUR": 25,
+      "image": "images/vanity/Manicura.jpg",
+      "imageAlt": "Manicura en Vanyti Center Beauty"      
     },
     {
       "id": "pedicura",
@@ -68,7 +76,9 @@
       ],
       "icon": "Footprints",
       "durationMin": 60,
-      "priceEUR": 30
+      "priceEUR": 30,
+      "image": "images/vanity/Pedicura.jpg",
+      "imageAlt": "Pedicura en Vanyti Center Beauty"      
     },
     {
       "id": "tratamientos-faciales",
@@ -82,7 +92,9 @@
       ],
       "icon": "Flower2",
       "durationMin": 60,
-      "priceEUR": 50
+      "priceEUR": 50,
+      "image": "images/vanity/Tratamientos-faciales-corporales.jpg",
+      "imageAlt": "Tratamiento Faciales Corporales en Vanyti Center Beauty"
     },
     {
       "id": "depilacion-laser",
@@ -96,7 +108,9 @@
       ],
       "icon": "Zap",
       "durationMin": 30,
-      "priceEUR": 60
+      "priceEUR": 60,
+      "image": "images/vanity/Depilacion-Laser.jpg",
+      "imageAlt": "Depilacion Laser en Vanyti Center Beauty"      
     },
     {
       "id": "tratamientos-corporales",
@@ -110,7 +124,9 @@
       ],
       "icon": "Heart",
       "durationMin": 60,
-      "priceEUR": 70
+      "priceEUR": 70,
+      "image": "images/vanity/Tratamientos-faciales-corporales.jpg",
+      "imageAlt": "Tratamiento Corporales en Vanyti Center Beauty"      
     },
     {
       "id": "laminado-cejas",
@@ -120,7 +136,9 @@
       "benefits": [],
       "icon": "Brush",
       "durationMin": 60,
-      "priceEUR": 39
+      "priceEUR": 39,
+      "image": "images/vanity/Tratamiento-de-cejas.jpg",
+      "imageAlt": "Laminado de Cejas en Vanyti Center Beauty"
     }
   ]
 }
