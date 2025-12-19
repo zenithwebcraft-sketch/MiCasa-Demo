@@ -6,6 +6,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    "resolveJsonModule": true,  // 🆕 AGREGAR ESTA LÍNEA
+    "esModuleInterop": true,    // 🆕 AGREGAR ESTA LÍNEA
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
