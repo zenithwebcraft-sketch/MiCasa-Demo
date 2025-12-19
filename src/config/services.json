@@ -1,0 +1,126 @@
+{
+  "services": [
+    {
+      "id": "depilacion-hilo",
+      "categoryId": "threading",
+      "title": "Depilación con Hilo",
+      "description": "Técnica ancestral para una depilación precisa y duradera. Ideal para cejas y rostro, respetando la piel sensible.",
+      "benefits": [
+        "Sin químicos ni irritación",
+        "Resultados duraderos hasta 4 semanas",
+        "Definición perfecta de cejas"
+      ],
+      "icon": "Sparkles",
+      "durationMin": 30,
+      "priceEUR": 15
+    },
+    {
+      "id": "pestanas",
+      "categoryId": "lashes",
+      "title": "Tratamiento de Pestañas",
+      "description": "Realza tu mirada con nuestros tratamientos de pestañas. Desde lifting hasta extensiones de alta calidad.",
+      "benefits": [
+        "Mirada más expresiva y natural",
+        "Materiales hipoalergénicos",
+        "Duración de 4-6 semanas"
+      ],
+      "icon": "Eye",
+      "durationMin": 60,
+      "priceEUR": 45
+    },
+    {
+      "id": "cejas",
+      "categoryId": "brows",
+      "title": "Tratamiento de Cejas",
+      "description": "Diseño, laminado y microblading para unas cejas perfectamente definidas que enmarquen tu rostro.",
+      "benefits": [
+        "Diseño personalizado",
+        "Resultados naturales",
+        "Técnicas de última generación"
+      ],
+      "icon": "Brush",
+      "durationMin": 60,
+      "priceEUR": 35
+    },
+    {
+      "id": "manicura",
+      "categoryId": "nails",
+      "title": "Manicura",
+      "description": "Cuidado completo de manos y uñas. Desde manicura clásica hasta nail art y semipermanente.",
+      "benefits": [
+        "Uñas fuertes y saludables",
+        "Colores de tendencia",
+        "Larga duración sin astillado"
+      ],
+      "icon": "Hand",
+      "durationMin": 60,
+      "priceEUR": 25
+    },
+    {
+      "id": "pedicura",
+      "categoryId": "nails",
+      "title": "Pedicura",
+      "description": "Tratamiento integral para pies cansados. Incluye hidratación, exfoliación y esmaltado perfecto.",
+      "benefits": [
+        "Pies suaves y renovados",
+        "Tratamiento de callosidades",
+        "Relajación completa"
+      ],
+      "icon": "Footprints",
+      "durationMin": 60,
+      "priceEUR": 30
+    },
+    {
+      "id": "tratamientos-faciales",
+      "categoryId": "facials",
+      "title": "Tratamientos Faciales",
+      "description": "Limpieza profunda, hidratación y rejuvenecimiento para una piel radiante y saludable.",
+      "benefits": [
+        "Piel más luminosa",
+        "Hidratación profunda",
+        "Anti-edad efectivo"
+      ],
+      "icon": "Flower2",
+      "durationMin": 60,
+      "priceEUR": 50
+    },
+    {
+      "id": "depilacion-laser",
+      "categoryId": "laser",
+      "title": "Depilación Láser",
+      "description": "Tecnología avanzada para eliminación permanente del vello. Resultados visibles desde la primera sesión.",
+      "benefits": [
+        "Resultados permanentes",
+        "Sin dolor",
+        "Apto para todo tipo de piel"
+      ],
+      "icon": "Zap",
+      "durationMin": 30,
+      "priceEUR": 60
+    },
+    {
+      "id": "tratamientos-corporales",
+      "categoryId": "body",
+      "title": "Tratamientos Corporales",
+      "description": "Masajes, envolturas y tratamientos reductores para un cuerpo tonificado y relajado.",
+      "benefits": [
+        "Reducción de medidas",
+        "Relajación muscular",
+        "Piel más firme"
+      ],
+      "icon": "Heart",
+      "durationMin": 60,
+      "priceEUR": 70
+    },
+    {
+      "id": "laminado-cejas",
+      "categoryId": "brows",
+      "title": "Laminado de cejas",
+      "description": "Tratamiento para lograr un acabado limpio y uniforme.",
+      "benefits": [],
+      "icon": "Brush",
+      "durationMin": 60,
+      "priceEUR": 39
+    }
+  ]
+}

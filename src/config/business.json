@@ -1,0 +1,39 @@
+{
+  "business": {
+    "name": "Vanyti Center Beauty",
+    "description": "Centro de Estética en Murcia especializado en cejas, pestañas, uñas y tratamientos faciales",
+    "contacts": {
+      "phone": "+34 663 491 339",
+      "emailPrimary": "comercial@byvanyti.com",
+      "whatsapp": "https://wa.me/34663491339"
+    },
+    "hoursText": {
+      "weekdays": "Lun - Sáb: 10:00 - 20:00",
+      "sunday": "Domingo: Cerrado"
+    },
+    "locations": [
+      {
+        "id": "nueva-condomina",
+        "name": "Nueva Condomina",
+        "addressLine": "Centro Comercial Nueva Condomina",
+        "city": "30100 Murcia, Spain",
+        "mapUrl": "https://maps.google.com/?q=Centro+Comercial+Nueva+Condomina+Murcia"
+      },
+      {
+        "id": "centro",
+        "name": "Centro",
+        "addressLine": "Calle Olof Palme, esquina, Pl. Musico Diaz Cano, 8",
+        "city": "30009 Murcia, Spain",
+        "mapUrl": "https://maps.google.com/?q=Calle+Olof+Palme+Murcia"
+      }
+    ],
+    "navigation": [
+      { "label": "Servicios", "href": "#servicios" },
+      { "label": "Precios", "href": "#precios" },
+      { "label": "Equipo", "href": "#equipo" },
+      { "label": "Opiniones", "href": "#opiniones" },
+      { "label": "Ubicación", "href": "#ubicacion" }
+    ],
+    "bookingUrl": "#booking"
+  }
+}
