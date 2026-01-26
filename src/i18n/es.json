@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "badge": "SERVICIOS PROFESIONALES DE CALIDAD",
+    "title": "Tu Negocio",
+    "titleHighlight": "Profesional",
+    "subtitle": "Servicios de calidad con profesionales certificados. Reserva tu cita hoy mismo.",
+    "ctaPrimary": "Reservar cita",
+    "ctaSecondary": "Ver servicios",
+    "stats": {
+      "experience": "Años exp.",
+      "clients": "Clientes",
+      "reviews": "Reseñas"
+    }
+  },
+  "services": {
+    "badge": "Nuestros Servicios",
+    "title": "Nuestros Servicios Profesionales",
+    "subtitle": "Ofrecemos servicios profesionales de alta calidad con personal certificado y las mejores prácticas del sector.",
+    "cta": "Reservar ahora"
+  },
+  "pricing": {
+    "badge": "Planes",
+    "title": "Planes y Precios",
+    "subtitle": "Elige el plan que mejor se adapte a tus necesidades",
+    "period": "/mes",
+    "cta": "Empezar"
+  },
+  "team": {
+    "badge": "Nuestro Equipo",
+    "title": "Profesionales que te Atienden",
+    "subtitle": "Conoce a nuestro equipo de expertos certificados"
+  },
+  "testimonials": {
+    "badge": "Testimonios",
+    "title": "Lo que Dicen Nuestros Clientes",
+    "subtitle": "Experiencias reales de clientes satisfechos"
+  },
+  "location": {
+    "badge": "Ubicación",
+    "title": "Encuéntranos",
+    "subtitle": "Estamos ubicados estratégicamente para tu comodidad.",
+    "hours": "Horario",
+    "cta": "Cómo llegar"
+  },
+  "footer": {
+    "navigation": "Navegación",
+    "contact": "Contacto",
+    "locations": "Ubicaciones",
+    "rights": "Todos los derechos reservados."
+  },
+  "booking": {
+    "title": "Reservar Cita",
+    "selectService": "Selecciona un Servicio",
+    "selectDate": "Selecciona Fecha y Hora",
+    "personalInfo": "Información Personal",
+    "confirmation": "Confirmación",
+    "duration": "Duración",
+    "price": "Precio",
+    "next": "Siguiente",
+    "back": "Atrás",
+    "confirm": "Confirmar Reserva"
+  }
+}

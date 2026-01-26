@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "badge": "PROFESSIONAL QUALITY SERVICES",
+    "title": "Your Professional",
+    "titleHighlight": "Business",
+    "subtitle": "Quality services with certified professionals. Book your appointment today.",
+    "ctaPrimary": "Book Now",
+    "ctaSecondary": "View Services",
+    "stats": {
+      "experience": "Years Exp.",
+      "clients": "Clients",
+      "reviews": "Reviews"
+    }
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Our Professional Services",
+    "subtitle": "We offer high-quality professional services with certified staff and industry best practices.",
+    "cta": "Book Now"
+  },
+  "pricing": {
+    "badge": "Plans",
+    "title": "Plans & Pricing",
+    "subtitle": "Choose the plan that best fits your needs",
+    "period": "/month",
+    "cta": "Get Started"
+  },
+  "team": {
+    "badge": "Our Team",
+    "title": "Professionals Who Care",
+    "subtitle": "Meet our team of certified experts"
+  },
+  "testimonials": {
+    "badge": "Testimonials",
+    "title": "What Our Clients Say",
+    "subtitle": "Real experiences from satisfied customers"
+  },
+  "location": {
+    "badge": "Location",
+    "title": "Find Us",
+    "subtitle": "Strategically located for your convenience.",
+    "hours": "Hours",
+    "cta": "Get Directions"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "locations": "Locations",
+    "rights": "All rights reserved."
+  },
+  "booking": {
+    "title": "Book Appointment",
+    "selectService": "Select a Service",
+    "selectDate": "Select Date & Time",
+    "personalInfo": "Personal Information",
+    "confirmation": "Confirmation",
+    "duration": "Duration",
+    "price": "Price",
+    "next": "Next",
+    "back": "Back",
+    "confirm": "Confirm Booking"
+  }
+}
