@@ -1,9 +1,11 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { siteConfig } from "@/config/siteConfig";
+import businessData from "@/config/business.json";
 
 export const Location = () => {
+  const { business } = businessData;
+  
   return (
     <section id="ubicacion" className="py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -13,17 +15,17 @@ export const Location = () => {
             Ubicación
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Visítanos en Murcia
+            Encuéntranos
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Dos centros perfectamente ubicados para tu comodidad.
+            Estamos ubicados estratégicamente para tu comodidad.
           </p>
         </div>
 
         {/* Locations grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {siteConfig.locations.map((location) => (
-            <Card key={location.name} className="overflow-hidden border-border">
+          {business.locations.map((location) => (
+            <Card key={location.id} className="overflow-hidden border-border">
               {/* Map placeholder */}
               <div className="aspect-video bg-gradient-to-br from-secondary to-muted relative">
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -36,7 +38,7 @@ export const Location = () => {
               
               <CardContent className="p-6 space-y-4">
                 <h3 className="font-display text-xl font-semibold text-foreground">
-                  Vanyti Center Beauty - {location.name}
+                  {business.name} - {location.name}
                 </h3>
                 
                 <div className="space-y-3">
@@ -51,18 +53,18 @@ export const Location = () => {
                   <div className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-primary flex-shrink-0" />
                     <div>
-                      <p className="text-foreground">{siteConfig.hours.weekdays}</p>
-                      <p className="text-muted-foreground">{siteConfig.hours.sunday}</p>
+                      <p className="text-foreground">{business.hours.weekdays}</p>
+                      <p className="text-muted-foreground">{business.hours.sunday}</p>
                     </div>
                   </div>
                   
                   <div className="flex items-center gap-3">
                     <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                     <a 
-                      href={`tel:${siteConfig.contact.phone.replace(/\s/g, "")}`}
+                      href={`tel:${business.contact.phone.replace(/\s/g, "")}`}
                       className="text-foreground hover:text-primary transition-colors"
                     >
-                      {siteConfig.contact.phone}
+                      {business.contact.phone}
                     </a>
                   </div>
                 </div>
