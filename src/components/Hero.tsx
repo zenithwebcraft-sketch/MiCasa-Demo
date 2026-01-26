@@ -73,7 +73,7 @@ export const Hero = () => {
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative order-1 lg:order-2">
         <img 
           src="/images/vanity/Tratamiento-de-pestanas-hero.jpg"
-          alt="Tratamiento de belleza en Vanyti"
+          alt="Imagen principal de servicios profesionales"
           className="absolute inset-0 w-full h-full object-cover"
         />
         {/* Overlay degradado sutil para que no se vea tan "pegada" */}

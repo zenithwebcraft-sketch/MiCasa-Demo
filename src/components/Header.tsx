@@ -3,6 +3,8 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/siteConfig";
 import logo from "@/assets/logo.png";
+import businessData from '@/config/business.json';
+
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +30,7 @@ export const Header = () => {
           <a href="/" className="flex items-center gap-2">
             <img src={logo} alt={siteConfig.name} className="h-12 w-auto" />
             <span className="font-display text-xl font-semibold text-foreground hidden sm:block">
-              Vanyti
+              {businessData.business.name}
             </span>
           </a>
 

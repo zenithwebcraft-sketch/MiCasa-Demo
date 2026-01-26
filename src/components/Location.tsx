@@ -38,7 +38,7 @@ export const Location = () => {
               
               <CardContent className="p-6 space-y-4">
                 <h3 className="font-display text-xl font-semibold text-foreground">
-                  {business.name} - {location.name}
+                  {businessData.business.name} - {location.name}
                 </h3>
                 
                 <div className="space-y-3">

@@ -1,6 +1,8 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { siteConfig } from "@/config/siteConfig";
 import logo from "@/assets/logo.png";
+import businessData from '@/config/business.json';
+
 
 export const Footer = () => {
   return (
@@ -11,7 +13,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img src={logo} alt={siteConfig.name} className="h-10 w-auto invert" />
-              <span className="font-display text-xl font-semibold">Vanyti</span>
+              <span className="font-display text-xl font-semibold">{businessData.business.name}</span>
             </div>
             <p className="text-background/70 text-sm">
               Centro de Estética en Murcia. Especialistas en cejas, pestañas, uñas 

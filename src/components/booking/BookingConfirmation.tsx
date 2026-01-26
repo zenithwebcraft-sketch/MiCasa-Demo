@@ -3,6 +3,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CheckCircle2, Calendar, Clock, MapPin, User, Mail, Phone } from 'lucide-react';
 import { format } from 'date-fns';
 import { es } from 'date-fns/locale';
+import businessData from '@/config/business.json';
+
 
 interface BookingConfirmationProps {
   bookingData: {
@@ -75,7 +77,7 @@ export const BookingConfirmation = ({ bookingData, onBookAnother }: BookingConfi
             <MapPin className="h-6 w-6 text-pink-600 mt-1" />
             <div>
               <p className="text-sm text-gray-600">Ubicación</p>
-              <p className="text-lg font-semibold">Vanyti Center Beauty - Centro</p>
+              <p className="text-lg font-semibold">{businessData.business.name} - {businessData.business.locations[0].name}</p>
               <p className="text-sm text-gray-700">Calle Olof Palme, esquina, Pl. Musico Diaz Cano, 8</p>
               <p className="text-sm text-gray-600">30009 Murcia, Spain</p>
             </div>
