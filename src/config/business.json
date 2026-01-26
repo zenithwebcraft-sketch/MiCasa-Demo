@@ -1,24 +1,24 @@
 {
   "business": {
-    "name": "Tu Negocio Aquí",
-    "description": "Descripción de tu negocio - Especializado en [Servicio 1], [Servicio 2] y [Servicio 3]",
+    "name": "Your Business Name",
+    "description": "Description of your business - Specialized in [Service 1], [Service 2] and [Service 3]",
     "contact": {
       "phone": "+1 XXX XXX XXX",
-      "email": "info@tunegocio.com",
-      "whatsapp": "https://wa.me/34XXXXXXXXX"
+      "email": "info@yourbusiness.com",
+      "whatsapp": "https://wa.me/1XXXXXXXXX"
     },
     "hours": {
-      "weekdays": "Lun - Vie: 09:00 - 20:00",
-      "weekend": "Sáb: 10:00 - 14:00",
-      "sunday": "Domingo: Cerrado"
+      "weekdays": "Mon - Fri: 09:00 - 20:00",
+      "weekend": "Sat: 10:00 - 14:00",
+      "sunday": "Sun: Closed"
     },
     "locations": [
       {
         "id": "principal",
-        "name": "Ubicación Principal",
-        "address": "Calle Principal 123, Local 5",
-        "city": "00000 Tu Ciudad, País",
-        "mapUrl": "https://maps.google.com/?q=Tu+Negocio+Aqui"
+        "name": "Main Location",
+        "address": "Main Street 123, Shop 5",
+        "city": "00000 Your City, Country",
+        "mapUrl": "https://maps.google.com/?q=Your+Business+Here"
       }
     ],
     "navigation": [
