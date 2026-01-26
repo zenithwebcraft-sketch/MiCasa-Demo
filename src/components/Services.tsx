@@ -27,8 +27,7 @@ export const Services = () => {
             Nuestros Servicios Profesionales
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ofrecemos una amplia gama de tratamientos de belleza con las técnicas más avanzadas 
-            y productos de primera calidad.
+              Ofrecemos servicios profesionales de alta calidad con personal certificado y las mejores prácticas del sector.
           </p>
         </div>
 

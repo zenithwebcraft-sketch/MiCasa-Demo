@@ -15,7 +15,7 @@ export const Hero = () => {
           {/* Badge */}
           <div className="inline-block mb-6 px-4 py-2 bg-primary/10 rounded-full">
             <span className="text-sm font-medium text-primary tracking-wide">
-              CENTRO DE ESTÉTICA EN MURCIA
+              SERVICIOS PROFESIONALES DE CALIDAD
             </span>
           </div>
 
@@ -57,7 +57,7 @@ export const Hero = () => {
             <div className="w-px h-10 bg-border" />
             <div>
               <div className="text-3xl font-display font-bold text-foreground">+5k</div>
-              <div className="text-xs text-muted-foreground uppercase tracking-wider">Clientas</div>
+              <div className="text-xs text-muted-foreground uppercase tracking-wider">Clientes</div>
             </div>
             <div className="w-px h-10 bg-border" />
             <div>
@@ -71,7 +71,7 @@ export const Hero = () => {
       {/* 2. LADO DERECHO: LA IMAGEN (Ocupa la mitad de la pantalla en PC, arriba en móvil) */}
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative order-1 lg:order-2">
         <img 
-          src="/images/vanity/Tratamiento-de-pestanas-hero.jpg"
+          src="/images/placeholder/hero.jpg"
           alt="Imagen principal de servicios profesionales"
           className="absolute inset-0 w-full h-full object-cover"
         />
