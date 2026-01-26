@@ -12,7 +12,7 @@
     "icon": "Sparkles",
     "durationMin": 90,
     "priceEUR": 99,
-    "image": "images/placeholder/servicio-1.jpg",
+    "image": "images/placeholder/service-placeholder.svg",
     "imageAlt": "Servicio Premium Plus - Tu Negocio Aquí"
   },
   {
@@ -28,7 +28,7 @@
     "icon": "Star",
     "durationMin": 60,
     "priceEUR": 59,
-    "image": "images/placeholder/servicio-2.jpg",
+    "image": "images/placeholder/service-placeholder.svg",
     "imageAlt": "Servicio Estándar - Tu Negocio Aquí"
   },
   {
@@ -44,7 +44,7 @@
     "icon": "Zap",
     "durationMin": 30,
     "priceEUR": 35,
-    "image": "images/placeholder/servicio-3.jpg",
+    "image": "images/placeholder/service-placeholder.svg",
     "imageAlt": "Servicio Express - Tu Negocio Aquí"
   },
   {
@@ -60,7 +60,7 @@
     "icon": "Gift",
     "durationMin": 120,
     "priceEUR": 149,
-    "image": "images/placeholder/servicio-4.jpg",
+    "image": "images/placeholder/service-placeholder.svg",
     "imageAlt": "Paquete Completo - Tu Negocio Aquí"
   },
   {
@@ -76,7 +76,7 @@
     "icon": "MessageCircle",
     "durationMin": 20,
     "priceEUR": 0,
-    "image": "images/placeholder/servicio-5.jpg",
+    "image": "images/placeholder/service-placeholder.svg",
     "imageAlt": "Consulta Inicial - Tu Negocio Aquí"
   },
   {
@@ -92,7 +92,7 @@
     "icon": "RefreshCw",
     "durationMin": 45,
     "priceEUR": 45,
-    "image": "images/placeholder/servicio-6.jpg",
+    "image": "images/placeholder/service-placeholder.svg",
     "imageAlt": "Mantenimiento Mensual - Tu Negocio Aquí"
   }
 ]

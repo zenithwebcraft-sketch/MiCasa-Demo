@@ -71,7 +71,7 @@ export const Hero = () => {
       {/* 2. LADO DERECHO: LA IMAGEN (Ocupa la mitad de la pantalla en PC, arriba en móvil) */}
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative order-1 lg:order-2">
         <img 
-          src="/images/placeholder/hero.jpg"
+          src="/images/placeholder/hero.svg"
           alt="Imagen principal de servicios profesionales"
           className="absolute inset-0 w-full h-full object-cover"
         />
