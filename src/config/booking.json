@@ -1,23 +1,23 @@
 {
   "bookingConfig": {
-    "timezone": "Europe/Madrid",
+    "timezone": "America/New_York",
     "slotIntervalMin": 30,
-    "currency": "EUR",
-    "defaultLocationId": "centro",
+    "currency": "USD",
+    "defaultLocationId": "principal",
     "openDays": ["mon", "tue", "wed", "thu", "fri", "sat"],
     "openHours": {
-      "start": "10:00",
+      "start": "09:00",
       "end": "20:00"
     },
     "policies": {
-      "paymentMethod": "Pay in person",
-      "cancellationWindow": "24 hours",
+      "paymentMethod": "A definir por el cliente",
+      "cancellationWindow": "24 horas",
       "depositRequired": false
     },
     "emailConfig": {
       "fromAddress": "no-reply@zenithwebcraft.com",
-      "fromName": "Vanyti Center Beauty",
-      "replyTo": "comercial@byvanyti.com"
+      "fromName": "Tu Negocio Aquí",
+      "replyTo": "info@tunegocio.com"
     }
   }
 }
