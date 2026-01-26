@@ -90,7 +90,7 @@ export const pricingPlans = [
   {
     name: "Plan Básico",
     description: "Ideal para comenzar",
-    price: "49€",
+    price: "$49",
     period: "/mes",
     features: [
       "Servicio mensual incluido",
@@ -103,7 +103,7 @@ export const pricingPlans = [
   {
     name: "Plan Premium",
     description: "Nuestro plan más popular",
-    price: "89€",
+    price: "$89",
     period: "/mes",
     features: [
       "2 Servicios mensuales incluidos",
@@ -117,7 +117,7 @@ export const pricingPlans = [
   {
     name: "Plan VIP",
     description: "Experiencia completa y premium",
-    price: "149€",
+    price: "$149",
     period: "/mes",
     features: [
       "Servicios ilimitados",
