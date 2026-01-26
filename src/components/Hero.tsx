@@ -21,13 +21,12 @@ export const Hero = () => {
 
           {/* Main heading */}
           <h1 className="font-display text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-            Descubre tu belleza <span className="text-primary italic">natural</span>
+            Tu Negocio <span className="text-primary italic">Profesional</span>
           </h1>
 
           {/* Subheading */}
           <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Especialistas en cejas, pestañas, uñas y tratamientos faciales. 
-            Te cuidamos con técnicas de vanguardia y un trato cercano.
+            Servicios de calidad con profesionales certificados. Reserva tu cita hoy mismo.
           </p>
 
           {/* CTA Buttons */}

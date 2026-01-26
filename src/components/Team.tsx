@@ -11,7 +11,7 @@ export const Team = () => {
             Nuestro Equipo
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Profesionales que te cuidan
+            Nuestro Equipo Profesional
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Un equipo apasionado y altamente cualificado, dedicado a realzar tu belleza natural.

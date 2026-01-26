@@ -24,7 +24,7 @@ export const Services = () => {
             Nuestros Servicios
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Todo lo que necesitas para brillar
+            Nuestros Servicios Profesionales
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Ofrecemos una amplia gama de tratamientos de belleza con las técnicas más avanzadas 

@@ -13,7 +13,7 @@ export const Pricing = () => {
             Planes y Precios
           </span>
           <h2 className="font-display text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Elige tu plan de belleza
+            Planes y Precios
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Planes diseñados para adaptarse a tus necesidades. Ahorra mientras cuidas tu belleza.
