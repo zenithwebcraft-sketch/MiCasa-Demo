@@ -10,14 +10,14 @@
       "end": "20:00"
     },
     "policies": {
-      "paymentMethod": "A definir por el cliente",
-      "cancellationWindow": "24 horas",
+      "paymentMethod": "To be defined by the client",
+      "cancellationWindow": "24 hours",
       "depositRequired": false
     },
     "emailConfig": {
       "fromAddress": "no-reply@zenithwebcraft.com",
-      "fromName": "Tu Negocio Aquí",
-      "replyTo": "info@tunegocio.com"
+      "fromName": "Your Business Name",
+      "replyTo": "info@yourbusiness.com"
     }
   }
 }
