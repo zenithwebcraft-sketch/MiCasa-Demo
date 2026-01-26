@@ -4,6 +4,7 @@ import servicesData from './services.json';
 import staffData from './staff.json';
 import bookingData from './booking.json';
 
+
 // ========== TYPES ==========
 export interface Service {
   id: string;
@@ -18,6 +19,7 @@ export interface Service {
   imageAlt?: string;
 }
 
+
 export interface StaffMember {
   id: string;
   name: string;
@@ -27,6 +29,7 @@ export interface StaffMember {
   active: boolean;
 }
 
+
 export interface Location {
   id: string;
   name: string;
@@ -34,6 +37,7 @@ export interface Location {
   city: string;
   mapUrl: string;
 }
+
 
 export interface BookingConfig {
   timezone: string;
@@ -57,102 +61,109 @@ export interface BookingConfig {
   };
 }
 
+
 // ========== EXPORTS ==========
 export const siteConfig = businessData.business;
-export const services: Service[] = servicesData.services;
-export const staff: StaffMember[] = staffData.staff;
+export const services: Service[] = servicesData; // ✅ CORREGIDO: es array directo
+export const staff: StaffMember[] = staffData;   // ✅ CORREGIDO: es array directo
 export const bookingConfig: BookingConfig = bookingData.bookingConfig;
+
 
 // ========== HELPER FUNCTIONS ==========
 export const getServiceById = (id: string): Service | undefined => {
   return services.find((s) => s.id === id);
 };
 
+
 export const getLocationById = (id: string): Location | undefined => {
   return siteConfig.locations.find((l) => l.id === id);
 };
+
 
 export const getActiveStaff = (): StaffMember[] => {
   return staff.filter((s) => s.active);
 };
 
+
 // ========== LEGACY EXPORTS (para compatibilidad) ==========
 export const pricingPlans = [
   {
-    name: "Básico",
-    description: "Ideal para mantenimiento mensual",
+    name: "Plan Básico",
+    description: "Ideal para comenzar",
     price: "49€",
     period: "/mes",
     features: [
-      "1 Depilación de cejas",
-      "1 Manicura básica",
-      "Descuento 10% en servicios",
+      "Servicio mensual incluido",
+      "Descuento 10% en servicios adicionales",
       "Acceso a ofertas exclusivas",
+      "Soporte por email",
     ],
     highlighted: false,
   },
   {
-    name: "Premium",
+    name: "Plan Premium",
     description: "Nuestro plan más popular",
     price: "89€",
     period: "/mes",
     features: [
-      "2 Tratamientos de cejas o pestañas",
-      "2 Manicuras o pedicuras",
-      "1 Tratamiento facial básico",
-      "Descuento 20% en servicios",
+      "2 Servicios mensuales incluidos",
+      "Descuento 20% en todos los servicios",
       "Reserva prioritaria",
+      "Soporte preferente",
+      "Productos de cortesía",
     ],
     highlighted: true,
   },
   {
-    name: "VIP",
-    description: "Experiencia completa de belleza",
+    name: "Plan VIP",
+    description: "Experiencia completa y premium",
     price: "149€",
     period: "/mes",
     features: [
-      "Tratamientos ilimitados de cejas",
-      "4 Manicuras o pedicuras",
-      "2 Tratamientos faciales premium",
-      "Descuento 30% en todos los servicios",
+      "Servicios ilimitados",
+      "Descuento 30% en servicios adicionales",
       "Acceso VIP sin esperas",
-      "Productos de regalo mensuales",
+      "Atención personalizada 24/7",
+      "Productos premium mensuales",
+      "Eventos exclusivos",
     ],
     highlighted: false,
   },
 ];
 
+
 export const team = staff; // Alias para compatibilidad
+
 
 export const testimonials = [
   {
-    name: "María García",
+    name: "Cliente Satisfecho 1",
     rating: 5,
-    text: "¡Increíble experiencia! Dayana es una artista con las cejas. Nunca había quedado tan satisfecha con el resultado.",
-    service: "Depilación con hilo",
+    text: "Excelente servicio y atención. Muy profesionales y atentos a los detalles. Lo recomiendo totalmente.",
+    service: "Servicio Premium",
   },
   {
-    name: "Carmen López",
+    name: "Cliente Satisfecho 2",
     rating: 5,
-    text: "Las extensiones de pestañas de Isis son perfectas. Se ven súper naturales y duran muchísimo.",
-    service: "Extensiones de pestañas",
+    text: "Quedé encantada con los resultados. El equipo es muy profesional y el ambiente muy agradable.",
+    service: "Servicio Estándar",
   },
   {
-    name: "Laura Martínez",
+    name: "Cliente Satisfecho 3",
     rating: 5,
-    text: "El mejor centro de estética de Murcia. El equipo es muy profesional y el ambiente es súper acogedor.",
-    service: "Tratamiento facial",
+    text: "Siempre vuelvo porque la calidad es excepcional. Precios justos y excelente trato.",
+    service: "Cliente Frecuente",
   },
   {
-    name: "Ana Sánchez",
+    name: "Cliente Satisfecho 4",
     rating: 5,
-    text: "Leumin hace magia con las uñas. Siempre salgo con diseños únicos que me encantan.",
-    service: "Nail art",
+    text: "La mejor experiencia que he tenido. Todo el personal es increíblemente amable y competente.",
+    service: "Paquete Completo",
   },
   {
-    name: "Patricia Ruiz",
+    name: "Cliente Satisfecho 5",
     rating: 5,
-    text: "Llevo años viniendo y nunca me han decepcionado. Calidad y trato excepcional.",
-    service: "Cliente habitual",
+    text: "Llevo años viniendo y nunca me han decepcionado. Calidad y profesionalismo en cada visita.",
+    service: "Cliente Habitual",
   },
 ];
