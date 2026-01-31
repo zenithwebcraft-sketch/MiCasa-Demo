@@ -1,23 +1,30 @@
 {
   "bookingConfig": {
     "timezone": "America/New_York",
-    "slotIntervalMin": 30,
+    "slotIntervalMin": 60,
     "currency": "USD",
-    "defaultLocationId": "principal",
-    "openDays": ["mon", "tue", "wed", "thu", "fri", "sat"],
+    "defaultLocationId": "sanford-main",
+    "openDays": ["mon", "tue", "wed", "thu", "fri"],
     "openHours": {
       "start": "09:00",
-      "end": "20:00"
+      "end": "17:00"
     },
+    "closedDates": [
+      "2026-01-01",
+      "2026-07-04",
+      "2026-11-27",
+      "2026-12-25"
+    ],
     "policies": {
-      "paymentMethod": "To be defined by the client",
-      "cancellationWindow": "24 hours",
-      "depositRequired": false
+      "paymentMethod": "Payment upon service completion",
+      "cancellationWindow": "24 hours advance notice required",
+      "depositRequired": false,
+      "depositAmount": 0
     },
     "emailConfig": {
-      "fromAddress": "no-reply@zenithwebcraft.com",
-      "fromName": "Your Business Name",
-      "replyTo": "info@yourbusiness.com"
+      "fromAddress": "no-reply@micasaworks4u.com",
+      "fromName": "MiCasa MultiService",
+      "replyTo": "info@micasaworks4u.com"
     }
   }
 }

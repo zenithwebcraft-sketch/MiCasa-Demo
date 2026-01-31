@@ -74,7 +74,7 @@ export const Hero = () => {
       {/* 2. LADO DERECHO: LA IMAGEN */}
       <div className="w-full lg:w-1/2 h-[50vh] lg:h-auto relative order-1 lg:order-2">
         <img 
-          src="/images/placeholder/hero.svg"
+          src="/images/micasa/hero.jpg"
           alt="Hero image"
           className="absolute inset-0 w-full h-full object-cover"
         />

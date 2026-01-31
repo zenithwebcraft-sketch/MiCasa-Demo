@@ -89,15 +89,15 @@
         "title": "Resumen de Cita",
         "service": "Servicio",
         "dateTime": "Fecha y Hora",
-        "stylist": "Estilista",
-        "noPreference": "No Preference",
+        "stylist": "Consultor",
+        "noPreference": "Cualquier disponible",
         "email": "Email",
         "client": "Cliente",
         "subtotal": "Subtotal",
         "total": "Total",
         "payInPerson": "Pay in person",
         "chargedToday": "Charged today",
-        "paymentNote": "El pago se realizará en el salón después del servicio.",
+        "paymentNote": "El pago se realizará en la oficina al finalizar el servicio.",
         "selectServicePrompt": "Selecciona un servicio para comenzar"
     },
     "navigation": {
@@ -118,7 +118,7 @@
     },
     "serviceSelection": {
       "title": "Selecciona tu Servicio",
-      "subtitle": "Elige el tratamiento que deseas reservar",
+      "subtitle": "Seleccione el servicio que desea reservar",
       "selected": "✓ Seleccionado",
       "select": "Seleccionar"
     },

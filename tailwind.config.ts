@@ -51,6 +51,17 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // ⬇️ COLORES DE MICASA MULTISERVICE
+        micasa: {
+          turquoise: "#1BBED7",
+          "turquoise-light": "#44D4ED",
+          "turquoise-dark": "#159DB5",
+          white: "#FFFFFF",
+          // ⬇️ NUEVO: LILA SUAVE PARA BOOKING
+          "lilac": "#e6d7ff",
+          "lilac-dark": "#d4c2f5",
+        },
+        // Manteniendo compatibilidad con plantilla original
         taupe: {
           DEFAULT: "hsl(var(--taupe))",
           light: "hsl(var(--taupe-light))",

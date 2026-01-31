@@ -1,34 +1,46 @@
-[
-  {
-    "id": "profesional-1",
-    "name": "Nombre Profesional 1",
-    "role": "Fundador/a & Especialista Senior",
-    "bio": "Con más de 10 años de experiencia en el sector. Lidera el equipo con profesionalismo, pasión y dedicación al cliente.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  },
-  {
-    "id": "profesional-2",
-    "name": "Nombre Profesional 2",
-    "role": "Especialista Certificado/a",
-    "bio": "Especialista certificado con formación internacional. Experto en técnicas avanzadas y atención personalizada.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  },
-  {
-    "id": "profesional-3",
-    "name": "Nombre Profesional 3",
-    "role": "Técnico/a Especializado/a",
-    "bio": "Profesional joven con gran talento y dedicación. Especializado en las últimas tendencias y técnicas del sector.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  },
-  {
-    "id": "profesional-4",
-    "name": "Nombre Profesional 4",
-    "role": "Consultor/a de Servicios",
-    "bio": "Experto en asesoramiento personalizado. Ayuda a cada cliente a encontrar el tratamiento perfecto para sus necesidades.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  }
-]
+{
+  "staff": [
+    {
+      "id": "irma-rivera",
+      "name": "Irma Rivera",
+      "role": "Fundadora y Directora",
+      "bio": "Fundadora de MiCasa MultiService con más de 10 años de experiencia ayudando a individuos y negocios con sus necesidades fiscales y administrativas. Reconocida por su profesionalismo, conocimiento profundo y atención personalizada.",
+      "image": "images/micasa/irma-rivera.jpg",
+      "specialties": [
+        "Preparación de Impuestos",
+        "Servicios ITIN",
+        "Consultoría de Negocios"
+      ],
+      "active": true,
+      "bookable": true
+    },
+    {
+      "id": "elsy",
+      "name": "Elsy",
+      "role": "Especialista en Servicios Administrativos",
+      "bio": "Miembro clave del equipo de MiCasa MultiService, dedicada a brindar servicios administrativos de calidad y atención excepcional a cada cliente.",
+      "image": "images/micasa/elsy.jpg",
+      "specialties": [
+        "Servicios Notariales",
+        "Asistencia Administrativa",
+        "Atención al Cliente"
+      ],
+      "active": true,
+      "bookable": true
+    },
+    {
+      "id": "carmen-cecilia",
+      "name": "Carmen Cecilia",
+      "role": "Especialista en Servicios al Cliente",
+      "bio": "Profesional dedicada a proporcionar soporte integral y soluciones eficientes para las necesidades administrativas y financieras de nuestros clientes.",
+      "image": "images/micasa/carmen-cecilia.jpg",
+      "specialties": [
+        "Contabilidad",
+        "Servicios de Nómina",
+        "Soporte Administrativo"
+      ],
+      "active": true,
+      "bookable": true
+    }
+  ]
+}

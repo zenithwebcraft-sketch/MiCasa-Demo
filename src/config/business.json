@@ -1,33 +1,33 @@
 {
   "business": {
-    "name": "Your Business Name",
-    "description": "Description of your business - Specialized in [Service 1], [Service 2] and [Service 3]",
+    "name": "MiCasa MultiService, LLC",
+    "description": "Professional services for taxes, bookkeeping, notary, and more. Your trusted partner for all your business and personal administrative needs.",
     "contact": {
-      "phone": "+1 XXX XXX XXX",
-      "email": "info@yourbusiness.com",
-      "whatsapp": "https://wa.me/1XXXXXXXXX"
+      "phone": "+1 (757) 773-9271",
+      "email": "info@micasaworks4u.com",
+      "whatsapp": "https://wa.me/17577739271"
     },
     "hours": {
-      "weekdays": "Mon - Fri: 09:00 - 20:00",
-      "weekend": "Sat: 10:00 - 14:00",
-      "sunday": "Sun: Closed"
+      "weekdays": "Mon - Fri: 9:00 AM - 5:00 PM",
+      "weekend": "Sat - Sun: Closed",
+      "sunday": "Closed"
     },
     "locations": [
       {
-        "id": "principal",
-        "name": "Main Location",
-        "address": "Main Street 123, Shop 5",
-        "city": "00000 Your City, Country",
-        "mapUrl": "https://maps.google.com/?q=Your+Business+Here"
+        "id": "sanford-main",
+        "name": "Sanford Office",
+        "address": "204 N Park Ave, Suites 100-102",
+        "city": "Sanford, FL 32771",
+        "mapUrl": "https://maps.google.com/?q=204+N+Park+Ave+Sanford+FL+32771"
       }
     ],
     "navigation": [
-      { "label": "Servicios", "href": "#servicios" },
-      { "label": "Precios", "href": "#precios" },
-      { "label": "Equipo", "href": "#equipo" },
-      { "label": "Opiniones", "href": "#opiniones" },
-      { "label": "Ubicación", "href": "#ubicacion" }
+      { "label": "Services", "href": "#servicios" },
+      { "label": "Pricing", "href": "#precios" },
+      { "label": "Our Team", "href": "#equipo" },
+      { "label": "Reviews", "href": "#opiniones" },
+      { "label": "Location", "href": "#ubicacion" }
     ],
-    "bookingUrl": "/citas"
+    "bookingUrl": "/booking"
   }
 }

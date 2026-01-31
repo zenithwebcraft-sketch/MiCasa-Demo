@@ -90,15 +90,15 @@
     "title": "Appointment Summary",
     "service": "Service",
     "dateTime": "Date & Time",
-    "stylist": "Stylist",
-    "noPreference": "No Preference",
+    "stylist": "Consultant",
+    "noPreference": "Any available",
     "email": "Email",
     "client": "Client",
     "subtotal": "Subtotal",
     "total": "Total",
     "payInPerson": "Pay in person",
     "chargedToday": "Charged today",
-    "paymentNote": "Payment will be made at the salon after service.",
+    "paymentNote": "Payment will be made at the office upon service completion. ",
     "selectServicePrompt": "Select a service to get started"
   },
   
@@ -121,7 +121,7 @@
   },  
     "serviceSelection": {
       "title": "Select Your Service",
-      "subtitle": "Choose the treatment you'd like to book",
+      "subtitle": "Select the service you'd like to schedule",
       "selected": "✓ Selected",
       "select": "Select"
     },

@@ -4,90 +4,96 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Plantilla Genérica - Sistema de Diseño Profesional */
-
+/* MiCasa MultiService - Sistema de Diseño Profesional */
 
 @layer base {
   :root {
-    /* Warm off-white background */
-    --background: 40 20% 98%;
-    --foreground: 30 10% 15%;
+    /* Clean white background for professional service */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 15%;
 
-    /* Cards with subtle warmth */
-    --card: 40 25% 97%;
-    --card-foreground: 30 10% 15%;
+    /* Cards with subtle neutral tone */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 15%;
 
-    --popover: 40 25% 97%;
-    --popover-foreground: 30 10% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 15%;
 
-    /* Soft Taupe as primary accent #C4A484 */
-    --primary: 30 35% 64%;
-    --primary-foreground: 30 10% 15%;
+    /* ⬇️ TURQUOISE PRIMARY - MiCasa Brand Color #1BBED7 */
+    --primary: 187 78% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Warm cream secondary */
-    --secondary: 35 30% 92%;
-    --secondary-foreground: 30 10% 20%;
+    /* Secondary turquoise (darker) */
+    --secondary: 187 68% 38%;
+    --secondary-foreground: 0 0% 100%;
 
-    /* Muted warm tones */
-    --muted: 35 20% 94%;
-    --muted-foreground: 30 10% 45%;
+    /* Muted neutral tones */
+    --muted: 210 20% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Accent matches primary taupe */
-    --accent: 30 35% 64%;
-    --accent-foreground: 30 10% 15%;
+    /* Accent turquoise (lighter) */
+    --accent: 270 100% 92%;
+    --accent-foreground: 270 50% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Soft warm borders */
-    --border: 30 20% 88%;
-    --input: 30 20% 88%;
-    --ring: 30 35% 64%;
+    /* Soft neutral borders */
+    --border: 214 15% 91%;
+    --input: 214 15% 91%;
+    --ring: 187 78% 48%; /* Turquoise focus ring */
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    /* Custom tokens for the beauty aesthetic */
+    /* Custom tokens (preserved for compatibility) */
     --taupe: 30 35% 64%;
     --taupe-light: 30 30% 85%;
     --taupe-dark: 30 35% 45%;
     --cream: 40 30% 96%;
-    --charcoal: 30 10% 15%;
+    --charcoal: 0 0% 20%;
+
+    /* ⬇️ COLOR LILA SUAVE PARA BOOKING */
+    --booking-accent: 270 100% 92%; /* #e6d7ff en HSL */
+    --booking-accent-dark: 270 80% 85%; /* Lila un poco más oscuro para hover */
+    
   }
 
   .dark {
-    --background: 30 15% 8%;
-    --foreground: 40 20% 95%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
 
-    --card: 30 15% 10%;
-    --card-foreground: 40 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 30 15% 10%;
-    --popover-foreground: 40 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 30 35% 64%;
-    --primary-foreground: 30 10% 10%;
+    /* Primary turquoise maintained in dark mode */
+    --primary: 187 78% 48%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 30 20% 15%;
-    --secondary-foreground: 40 20% 95%;
+    --secondary: 187 68% 38%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 30 15% 18%;
-    --muted-foreground: 30 15% 65%;
+    --muted: 217 19% 27%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 30 35% 64%;
-    --accent-foreground: 30 10% 10%;
+    --accent: 187 88% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 30 15% 20%;
-    --input: 30 15% 20%;
-    --ring: 30 35% 64%;
+    --border: 217 19% 27%;
+    --input: 217 19% 27%;
+    --ring: 187 78% 48%;
 
+    /* Dark mode adjustments */
     --taupe: 30 35% 64%;
     --taupe-light: 30 30% 75%;
     --taupe-dark: 30 35% 50%;
     --cream: 30 15% 12%;
-    --charcoal: 40 20% 95%;
+    --charcoal: 0 0% 95%;
   }
 }
 

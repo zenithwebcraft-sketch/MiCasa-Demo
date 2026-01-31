@@ -108,7 +108,7 @@ const Booking = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center justify-between mb-8">
@@ -136,10 +136,11 @@ const Booking = () => {
           <div className="max-w-4xl mx-auto mb-8">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  currentStep === 'service' ? 'bg-pink-600 text-white' : 
-                  formData.serviceId ? 'bg-pink-200 text-pink-800' : 'bg-gray-200 text-gray-500'
+               <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                  currentStep === 'service' ? 'bg-primary text-white' : 
+                  formData.serviceId ? 'bg-primary/20 text-primary' : 'bg-gray-200 text-gray-500'
                 }`}>
+
                   1
                 </div>
                 <span className="text-sm font-medium hidden sm:inline">{translations.booking.stepper.service}</span>
@@ -148,8 +149,8 @@ const Booking = () => {
               
               <div className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  currentStep === 'datetime' ? 'bg-pink-600 text-white' : 
-                  formData.date ? 'bg-pink-200 text-pink-800' : 'bg-gray-200 text-gray-500'
+                  currentStep === 'datetime' ? 'bg-primary text-white' : 
+                  formData.date ? 'bg-primary/20 text-primary' : 'bg-gray-200 text-gray-500'
                 }`}>
                   2
                 </div>
@@ -159,8 +160,8 @@ const Booking = () => {
               
               <div className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  currentStep === 'email' ? 'bg-pink-600 text-white' : 
-                  formData.email ? 'bg-pink-200 text-pink-800' : 'bg-gray-200 text-gray-500'
+                  currentStep === 'email' ? 'bg-primary text-white' : 
+                  formData.email ? 'bg-primary/20 text-primary' : 'bg-gray-200 text-gray-500'
                 }`}>
                   3
                 </div>
@@ -170,8 +171,8 @@ const Booking = () => {
               
               <div className="flex items-center gap-2">
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                  currentStep === 'details' ? 'bg-pink-600 text-white' : 
-                  formData.firstName ? 'bg-pink-200 text-pink-800' : 'bg-gray-200 text-gray-500'
+                  currentStep === 'details' ? 'bg-primary text-white' : 
+                  formData.firstName ? 'bg-primary/20 text-primary' : 'bg-gray-200 text-gray-500'
                 }`}>
                   4
                 </div>
@@ -235,7 +236,7 @@ const Booking = () => {
                     {isSubmitting && (
                       <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10 rounded-lg">
                         <div className="text-center">
-                          <Loader2 className="h-12 w-12 animate-spin text-pink-600 mx-auto mb-4" />
+                          <Loader2 className="h-12 w-12 animate-spin text-[#9b7fd4] mx-auto mb-4" />
                           <p className="text-gray-700 font-medium">{translations.booking.messages.creating}</p>
                         </div>
                       </div>
@@ -329,22 +330,22 @@ const Booking = () => {
                       <div className="border-t pt-4">
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-sm text-gray-600">{translations.booking.summary.subtotal}</span>
-                          <span className="font-medium">{service.priceEUR}€</span>
+                          <span className="font-medium">${service.priceEUR}</span>
                         </div>
                         <div className="flex justify-between items-center text-lg font-bold border-t pt-2">
                           <span>{translations.booking.summary.total}</span>
-                          <span className="text-pink-600">{service.priceEUR}€</span>
+                          <span className="text-[#9b7fd4]">${service.priceEUR}</span>
                         </div>
                       </div>
 
-                      <div className="bg-pink-50 p-4 rounded-lg text-sm">
-                        <p className="font-medium text-pink-900 mb-1">
+                      <div className="bg-[#f5f0ff] p-4 rounded-lg text-sm">
+                        <p className="font-medium text-[#6b4ea3] mb-1">
                           💳 {translations.booking.summary.payInPerson}
                         </p>
-                        <p className="text-pink-800">
-                          {translations.booking.summary.chargedToday}: 0€
+                        <p className="text-[#7d5fb8]">
+                          {translations.booking.summary.chargedToday}: $0
                         </p>
-                        <p className="text-pink-700 text-xs mt-2">
+                        <p className="text-[#8a6ec4] text-xs mt-2">
                           {translations.booking.summary.paymentNote}
                         </p>
                       </div>

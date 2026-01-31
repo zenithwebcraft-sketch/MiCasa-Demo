@@ -1,34 +1,46 @@
-[
-  {
-    "id": "profesional-1",
-    "name": "Professional Name 1",
-    "role": "Founder & Senior Specialist",
-    "bio": "With over 10 years of experience in the industry. Leads the team with professionalism, passion and dedication to clients.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  },
-  {
-    "id": "profesional-2",
-    "name": "Professional Name 2",
-    "role": "Certified Specialist",
-    "bio": "Certified specialist with international training. Expert in advanced techniques and personalized attention.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  },
-  {
-    "id": "profesional-3",
-    "name": "Professional Name 3",
-    "role": "Specialized Technician",
-    "bio": "Young professional with great talent and dedication. Specialized in the latest trends and techniques in the sector.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  },
-  {
-    "id": "profesional-4",
-    "name": "Professional Name 4",
-    "role": "Services Consultant",
-    "bio": "Expert in personalized consulting. Helps each client find the perfect treatment for their needs.",
-    "image": "images/placeholder/staff-placeholder.svg",
-    "active": true
-  }
-]
+{
+  "staff": [
+    {
+      "id": "irma-rivera",
+      "name": "Irma Rivera",
+      "role": "Founder & Director",
+      "bio": "Founder of MiCasa MultiService with over 10 years of experience helping individuals and businesses with their tax and administrative needs. Recognized for her professionalism, deep knowledge, and personalized attention.",
+      "image": "images/micasa/irma-rivera.jpg",
+      "specialties": [
+        "Tax Preparation",
+        "ITIN Services",
+        "Business Consulting"
+      ],
+      "active": true,
+      "bookable": true
+    },
+    {
+      "id": "elsy",
+      "name": "Elsy",
+      "role": "Administrative Services Specialist",
+      "bio": "Key member of the MiCasa MultiService team, dedicated to providing quality administrative services and exceptional attention to each client.",
+      "image": "images/micasa/elsy.jpg",
+      "specialties": [
+        "Notary Services",
+        "Administrative Assistance",
+        "Customer Service"
+      ],
+      "active": true,
+      "bookable": true
+    },
+    {
+      "id": "carmen-cecilia",
+      "name": "Carmen Cecilia",
+      "role": "Client Services Specialist",
+      "bio": "Professional dedicated to providing comprehensive support and efficient solutions for our clients' administrative and financial needs.",
+      "image": "images/micasa/carmen-cecilia.jpg",
+      "specialties": [
+        "Bookkeeping",
+        "Payroll Services",
+        "Administrative Support"
+      ],
+      "active": true,
+      "bookable": true
+    }
+  ]
+}

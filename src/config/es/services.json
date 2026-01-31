@@ -1,98 +1,194 @@
-[
-  {
-    "id": "servicio-premium-1",
-    "categoryId": "premium",
-    "title": "Servicio Premium Plus",
-    "description": "Descripción detallada del servicio premium. Explica en qué consiste, qué técnicas se utilizan y qué resultados puede esperar el cliente.",
-    "benefits": [
-      "Beneficio principal del servicio",
-      "Resultados duraderos y visibles",
-      "Atención personalizada incluida"
-    ],
-    "icon": "Sparkles",
-    "durationMin": 90,
-    "priceEUR": 99,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Servicio Premium Plus - Tu Negocio Aquí"
-  },
-  {
-    "id": "servicio-estandar-1",
-    "categoryId": "standard",
-    "title": "Servicio Estándar",
-    "description": "Servicio de calidad a precio accesible. Ideal para clientes que buscan excelentes resultados sin comprometer su presupuesto.",
-    "benefits": [
-      "Excelente relación calidad-precio",
-      "Profesionales certificados",
-      "Resultados garantizados"
-    ],
-    "icon": "Star",
-    "durationMin": 60,
-    "priceEUR": 59,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Servicio Estándar - Tu Negocio Aquí"
-  },
-  {
-    "id": "servicio-express",
-    "categoryId": "express",
-    "title": "Servicio Express",
-    "description": "Servicio rápido sin sacrificar calidad. Perfecto para personas con agenda ocupada que necesitan resultados inmediatos.",
-    "benefits": [
-      "Rápido y efectivo",
-      "Sin cita previa disponible",
-      "Resultados inmediatos"
-    ],
-    "icon": "Zap",
-    "durationMin": 30,
-    "priceEUR": 35,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Servicio Express - Tu Negocio Aquí"
-  },
-  {
-    "id": "paquete-completo",
-    "categoryId": "packages",
-    "title": "Paquete Completo",
-    "description": "Combinación de servicios con descuento especial. Tratamiento integral para resultados óptimos y ahorro garantizado.",
-    "benefits": [
-      "Hasta 20% de descuento",
-      "Tratamiento completo incluido",
-      "Seguimiento personalizado"
-    ],
-    "icon": "Gift",
-    "durationMin": 120,
-    "priceEUR": 149,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Paquete Completo - Tu Negocio Aquí"
-  },
-  {
-    "id": "consulta-inicial",
-    "categoryId": "consultation",
-    "title": "Consulta Inicial Gratuita",
-    "description": "Primera consulta sin compromiso. Evaluamos tus necesidades y diseñamos un plan personalizado adaptado a ti.",
-    "benefits": [
-      "100% gratuita",
-      "Evaluación profesional completa",
-      "Plan personalizado incluido"
-    ],
-    "icon": "MessageCircle",
-    "durationMin": 20,
-    "priceEUR": 0,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Consulta Inicial - Tu Negocio Aquí"
-  },
-  {
-    "id": "mantenimiento-mensual",
-    "categoryId": "maintenance",
-    "title": "Mantenimiento Mensual",
-    "description": "Servicio de mantenimiento periódico para clientes regulares. Mantén tus resultados con sesiones programadas mensuales.",
-    "benefits": [
-      "Precio especial para clientes recurrentes",
-      "Prioridad en agenda",
-      "Acumulación de puntos de fidelidad"
-    ],
-    "icon": "RefreshCw",
-    "durationMin": 45,
-    "priceEUR": 45,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Mantenimiento Mensual - Tu Negocio Aquí"
-  }
-]
+{
+  "services": [
+    {
+      "id": "tax-preparation",
+      "categoryId": "tax-services",
+      "title": "Preparación de Impuestos",
+      "description": "Consulta preliminar para la preparación de su declaración de impuestos. Evaluamos su situación fiscal y le guiamos en el proceso para maximizar su reembolso.",
+      "benefits": [
+        "Evaluación personalizada de su situación fiscal",
+        "Orientación sobre deducciones aplicables",
+        "Estrategias para maximizar su reembolso",
+        "Respuestas a todas sus preguntas sobre impuestos"
+      ],
+      "icon": "FileText",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/tax-preparation.jpg",
+      "imageAlt": "Consultoría de preparación de impuestos",
+      "popular": true,
+      "bookable": true
+    },
+    {
+      "id": "itin-application",
+      "categoryId": "tax-services",
+      "title": "Aplicación ITIN",
+      "description": "Consulta inicial para solicitud de Número de Identificación Personal del Contribuyente (ITIN). Le asesoramos en todo el proceso de aplicación.",
+      "benefits": [
+        "Revisión de documentos requeridos",
+        "Asistencia con formulario W-7",
+        "Verificación de elegibilidad",
+        "Seguimiento del proceso de aplicación"
+      ],
+      "icon": "CreditCard",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/itin-service.jpg",
+      "imageAlt": "Servicio de aplicación ITIN",
+      "popular": true,
+      "bookable": true
+    },
+    {
+      "id": "bookkeeping-consultation",
+      "categoryId": "business-services",
+      "title": "Consultoría de Contabilidad",
+      "description": "Sesión inicial para evaluar las necesidades de contabilidad de su negocio. Diseñamos un plan personalizado para mantener sus finanzas organizadas.",
+      "benefits": [
+        "Evaluación de su sistema contable actual",
+        "Recomendaciones de software y procesos",
+        "Plan de implementación personalizado",
+        "Cotización de servicios mensuales"
+      ],
+      "icon": "Calculator",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/bookkeeping.jpg",
+      "imageAlt": "Servicios de contabilidad y bookkeeping",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "payroll-services",
+      "categoryId": "business-services",
+      "title": "Servicios de Nómina",
+      "description": "Consulta para configurar o mejorar su sistema de nómina. Nos aseguramos de que cumpla con todas las regulaciones y simplifique sus procesos.",
+      "benefits": [
+        "Análisis de necesidades de nómina",
+        "Configuración de sistema de pago",
+        "Cumplimiento con regulaciones laborales",
+        "Automatización de procesos"
+      ],
+      "icon": "Wallet",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/payroll.jpg",
+      "imageAlt": "Servicios de procesamiento de nómina",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "notary-public",
+      "categoryId": "legal-services",
+      "title": "Servicios Notariales",
+      "description": "Cita para notarización de documentos legales. Servicio profesional y confiable para todos sus trámites que requieren certificación notarial.",
+      "benefits": [
+        "Notarización de documentos oficiales",
+        "Certificación de firmas",
+        "Copias certificadas",
+        "Servicio rápido y profesional"
+      ],
+      "icon": "Stamp",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/notary.jpg",
+      "imageAlt": "Servicios de notario público",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "translation-services",
+      "categoryId": "legal-services",
+      "title": "Servicios de Traducción",
+      "description": "Consulta para servicios de traducción de documentos legales y oficiales. Traducciones certificadas español-inglés e inglés-español.",
+      "benefits": [
+        "Traducciones certificadas y oficiales",
+        "Documentos legales y personales",
+        "Español ↔ Inglés",
+        "Entrega rápida y precisa"
+      ],
+      "icon": "Languages",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/translation.jpg",
+      "imageAlt": "Servicios de traducción de documentos",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "audit-assistance",
+      "categoryId": "tax-services",
+      "title": "Asistencia con Auditorías",
+      "description": "Consulta inicial si está enfrentando una auditoría del IRS. Le brindamos el apoyo y orientación necesarios para manejar el proceso con confianza.",
+      "benefits": [
+        "Revisión de notificación del IRS",
+        "Preparación de documentación",
+        "Estrategia de respuesta",
+        "Representación y acompañamiento"
+      ],
+      "icon": "Shield",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/audit.jpg",
+      "imageAlt": "Asistencia con auditorías del IRS",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "virtual-assistant",
+      "categoryId": "business-services",
+      "title": "Asistente Virtual",
+      "description": "Consulta para servicios de asistencia administrativa remota. Ayudamos a su negocio con tareas administrativas para que pueda enfocarse en crecer.",
+      "benefits": [
+        "Gestión de agenda y correos",
+        "Entrada de datos y documentación",
+        "Coordinación de citas",
+        "Soporte administrativo general"
+      ],
+      "icon": "Headphones",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/virtual-assistant.jpg",
+      "imageAlt": "Servicios de asistente virtual",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "workers-comp-insurance",
+      "categoryId": "insurance-services",
+      "title": "Seguro Workers Comp",
+      "description": "Consulta inicial para seguro de compensación laboral. Evaluamos las necesidades de su negocio y le conectamos con las mejores opciones de cobertura.",
+      "benefits": [
+        "Evaluación de necesidades de cobertura",
+        "Comparación de opciones disponibles",
+        "Asistencia con aplicación",
+        "Cumplimiento con requisitos estatales"
+      ],
+      "icon": "HardHat",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/workers-comp.jpg",
+      "imageAlt": "Seguro de compensación laboral",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "general-liability-insurance",
+      "categoryId": "insurance-services",
+      "title": "Seguro de Responsabilidad General",
+      "description": "Consulta para obtener seguro de responsabilidad general para su negocio. Proteja su empresa con la cobertura adecuada.",
+      "benefits": [
+        "Análisis de riesgos de su negocio",
+        "Cotizaciones competitivas",
+        "Asesoría en selección de cobertura",
+        "Proceso de aplicación simplificado"
+      ],
+      "icon": "Shield",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/liability-insurance.jpg",
+      "imageAlt": "Seguro de responsabilidad general para negocios",
+      "popular": false,
+      "bookable": true
+    }
+  ]
+}

@@ -1,19 +1,34 @@
-import { Check, Sparkles, Eye, Brush, Hand, Footprints, Flower2, Zap, Heart } from "lucide-react";
+import { Check, Sparkles, Eye, Brush, Hand, Footprints, Flower2, Zap, Heart,Scissors, Palette, Star,
+  FileText, CreditCard, Calculator, Wallet, Stamp, 
+  Languages, Shield, Headphones, HardHat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { services } from "@/config/siteConfig";
 import { siteConfig } from "@/config/siteConfig";
 import { useLanguage } from "@/hooks/useLanguage";
 
 const iconMap: Record<string, React.ReactNode> = {
-  Sparkles: <Sparkles className="w-8 h-8" />,
-  Eye: <Eye className="w-8 h-8" />,
-  Brush: <Brush className="w-8 h-8" />,
-  Hand: <Hand className="w-8 h-8" />,
-  Footprints: <Footprints className="w-8 h-8" />,
+  // Iconos originales de la plantilla
+  check: <Check className="w-8 h-8" />,
+  sparkles: <Sparkles className="w-8 h-8" />,
+  eye: <Eye className="w-8 h-8" />,
+  brush: <Brush className="w-8 h-8" />,
+  hand: <Hand className="w-8 h-8" />,
+  footprints: <Footprints className="w-8 h-8" />,
   Flower2: <Flower2 className="w-8 h-8" />,
   Zap: <Zap className="w-8 h-8" />,
   Heart: <Heart className="w-8 h-8" />,
+  // ⬇️ ICONOS NUEVOS PARA MICASA MULTISERVICE
+  FileText: <FileText className="w-8 h-8" />,
+  CreditCard: <CreditCard className="w-8 h-8" />,
+  Calculator: <Calculator className="w-8 h-8" />,
+  Wallet: <Wallet className="w-8 h-8" />,
+  Stamp: <Stamp className="w-8 h-8" />,
+  Languages: <Languages className="w-8 h-8" />,
+  Shield: <Shield className="w-8 h-8" />,
+  Headphones: <Headphones className="w-8 h-8" />,
+  HardHat: <HardHat className="w-8 h-8" />,
 };
+
 
 export const Services = () => {
   const { translations: t } = useLanguage();

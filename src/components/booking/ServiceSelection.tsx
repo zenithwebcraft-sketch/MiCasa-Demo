@@ -1,7 +1,7 @@
 import { services } from '@/config/siteConfig';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Clock, Euro } from 'lucide-react';
+import { Clock, DollarSign } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 
 interface ServiceSelectionProps {
@@ -31,17 +31,16 @@ export const ServiceSelection = ({ onSelectService, selectedServiceId }: Service
               key={service.id}
               className={`cursor-pointer transition-all hover:shadow-lg ${
                 selectedServiceId === service.id
-                  ? 'ring-2 ring-pink-500 border-pink-500'
-                  : 'hover:border-pink-300'
+                  ? 'ring-2 ring-[#e6d7ff] border-[#e6d7ff]'
+                  : 'hover:border-[#e6d7ff]'
               }`}
               onClick={() => onSelectService(service.id)}
             >
               <CardHeader>
                 <CardTitle className="flex items-start justify-between">
                   <span>{service.title}</span>
-                  <span className="text-pink-600 text-xl font-bold flex items-center gap-1">
-                    {service.priceEUR}
-                    <Euro className="h-5 w-5" />
+                  <span className="text-[#9b7fd4] text-xl font-bold flex items-center gap-1">
+                    ${service.priceEUR}
                   </span>
                 </CardTitle>
                 <CardDescription className="flex items-center gap-2 text-gray-600">

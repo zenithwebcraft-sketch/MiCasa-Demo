@@ -70,8 +70,8 @@ const currentLang = getBrowserLanguage();
 
 // ========== EXPORTS ==========
 export const siteConfig = businessData.business;
-export const services: Service[] = currentLang === 'es' ? servicesDataES : servicesDataEN;
-export const staff: StaffMember[] = currentLang === 'es' ? staffDataES : staffDataEN;
+export const services: Service[] = currentLang === 'es' ? servicesDataES.services : servicesDataEN.services;
+export const staff: StaffMember[] = currentLang === 'es' ? staffDataES.staff : staffDataEN.staff;
 export const bookingConfig: BookingConfig = bookingData.bookingConfig;
 
 // ========== HELPER FUNCTIONS ==========

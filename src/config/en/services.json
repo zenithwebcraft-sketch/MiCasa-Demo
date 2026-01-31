@@ -1,98 +1,194 @@
-[
-  {
-    "id": "servicio-premium-1",
-    "categoryId": "premium",
-    "title": "Premium Plus Service",
-    "description": "Detailed description of the premium service. Explains what it consists of, what techniques are used, and what results the client can expect.",
-    "benefits": [
-      "Main service benefit",
-      "Lasting and visible results",
-      "Personalized attention included"
-    ],
-    "icon": "Sparkles",
-    "durationMin": 90,
-    "priceEUR": 99,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Premium Plus Service - Your Business Here"
-  },
-  {
-    "id": "servicio-estandar-1",
-    "categoryId": "standard",
-    "title": "Standard Service",
-    "description": "Quality service at an accessible price. Ideal for clients seeking excellent results without compromising their budget.",
-    "benefits": [
-      "Excellent quality-price ratio",
-      "Certified professionals",
-      "Guaranteed results"
-    ],
-    "icon": "Star",
-    "durationMin": 60,
-    "priceEUR": 59,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Standard Service - Your Business Here"
-  },
-  {
-    "id": "servicio-express",
-    "categoryId": "express",
-    "title": "Express Service",
-    "description": "Fast service without sacrificing quality. Perfect for busy people who need immediate results.",
-    "benefits": [
-      "Fast and effective",
-      "Walk-in available",
-      "Immediate results"
-    ],
-    "icon": "Zap",
-    "durationMin": 30,
-    "priceEUR": 35,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Express Service - Your Business Here"
-  },
-  {
-    "id": "paquete-completo",
-    "categoryId": "packages",
-    "title": "Complete Package",
-    "description": "Combination of services with special discount. Comprehensive treatment for optimal results and guaranteed savings.",
-    "benefits": [
-      "Up to 20% discount",
-      "Complete treatment included",
-      "Personalized follow-up"
-    ],
-    "icon": "Gift",
-    "durationMin": 120,
-    "priceEUR": 149,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Complete Package - Your Business Here"
-  },
-  {
-    "id": "consulta-inicial",
-    "categoryId": "consultation",
-    "title": "Free Initial Consultation",
-    "description": "First consultation without commitment. We assess your needs and design a personalized plan tailored to you.",
-    "benefits": [
-      "100% free",
-      "Complete professional assessment",
-      "Personalized plan included"
-    ],
-    "icon": "MessageCircle",
-    "durationMin": 20,
-    "priceEUR": 0,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Initial Consultation - Your Business Here"
-  },
-  {
-    "id": "mantenimiento-mensual",
-    "categoryId": "maintenance",
-    "title": "Monthly Maintenance",
-    "description": "Periodic maintenance service for regular clients. Maintain your results with monthly scheduled sessions.",
-    "benefits": [
-      "Special price for recurring clients",
-      "Priority scheduling",
-      "Loyalty points accumulation"
-    ],
-    "icon": "RefreshCw",
-    "durationMin": 45,
-    "priceEUR": 45,
-    "image": "images/placeholder/service-placeholder.svg",
-    "imageAlt": "Monthly Maintenance - Your Business Here"
-  }
-]
+{
+  "services": [
+    {
+      "id": "tax-preparation",
+      "categoryId": "tax-services",
+      "title": "Tax Preparation",
+      "description": "Preliminary consultation for your tax return preparation. We assess your tax situation and guide you through the process to maximize your refund.",
+      "benefits": [
+        "Personalized assessment of your tax situation",
+        "Guidance on applicable deductions",
+        "Strategies to maximize your refund",
+        "Answers to all your tax questions"
+      ],
+      "icon": "FileText",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/tax-preparation.jpg",
+      "imageAlt": "Tax preparation consultation service",
+      "popular": true,
+      "bookable": true
+    },
+    {
+      "id": "itin-application",
+      "categoryId": "tax-services",
+      "title": "ITIN Application",
+      "description": "Initial consultation for Individual Taxpayer Identification Number (ITIN) application. We guide you through the entire application process.",
+      "benefits": [
+        "Review of required documents",
+        "Assistance with Form W-7",
+        "Eligibility verification",
+        "Application process follow-up"
+      ],
+      "icon": "CreditCard",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/itin-service.jpg",
+      "imageAlt": "ITIN application service",
+      "popular": true,
+      "bookable": true
+    },
+    {
+      "id": "bookkeeping-consultation",
+      "categoryId": "business-services",
+      "title": "Bookkeeping Consultation",
+      "description": "Initial session to evaluate your business bookkeeping needs. We design a personalized plan to keep your finances organized.",
+      "benefits": [
+        "Assessment of your current accounting system",
+        "Software and process recommendations",
+        "Personalized implementation plan",
+        "Monthly service quote"
+      ],
+      "icon": "Calculator",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/bookkeeping.jpg",
+      "imageAlt": "Bookkeeping and accounting services",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "payroll-services",
+      "categoryId": "business-services",
+      "title": "Payroll Services",
+      "description": "Consultation to set up or improve your payroll system. We ensure compliance with all regulations and simplify your processes.",
+      "benefits": [
+        "Payroll needs analysis",
+        "Payment system configuration",
+        "Compliance with labor regulations",
+        "Process automation"
+      ],
+      "icon": "Wallet",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/payroll.jpg",
+      "imageAlt": "Payroll processing services",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "notary-public",
+      "categoryId": "legal-services",
+      "title": "Notary Public",
+      "description": "Appointment for notarization of legal documents. Professional and reliable service for all your notary certification needs.",
+      "benefits": [
+        "Official document notarization",
+        "Signature certification",
+        "Certified copies",
+        "Fast and professional service"
+      ],
+      "icon": "Stamp",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/notary.jpg",
+      "imageAlt": "Notary public services",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "translation-services",
+      "categoryId": "legal-services",
+      "title": "Translation Services",
+      "description": "Consultation for legal and official document translation services. Certified Spanish-English and English-Spanish translations.",
+      "benefits": [
+        "Certified and official translations",
+        "Legal and personal documents",
+        "Spanish ↔ English",
+        "Fast and accurate delivery"
+      ],
+      "icon": "Languages",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/translation.jpg",
+      "imageAlt": "Document translation services",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "audit-assistance",
+      "categoryId": "tax-services",
+      "title": "Audit Assistance",
+      "description": "Initial consultation if you're facing an IRS audit. We provide the support and guidance needed to handle the process with confidence.",
+      "benefits": [
+        "IRS notice review",
+        "Documentation preparation",
+        "Response strategy",
+        "Representation and support"
+      ],
+      "icon": "Shield",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/audit.jpg",
+      "imageAlt": "IRS audit assistance",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "virtual-assistant",
+      "categoryId": "business-services",
+      "title": "Virtual Assistant",
+      "description": "Consultation for remote administrative assistance services. We help your business with administrative tasks so you can focus on growth.",
+      "benefits": [
+        "Calendar and email management",
+        "Data entry and documentation",
+        "Appointment coordination",
+        "General administrative support"
+      ],
+      "icon": "Headphones",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/virtual-assistant.jpg",
+      "imageAlt": "Virtual assistant services",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "workers-comp-insurance",
+      "categoryId": "insurance-services",
+      "title": "Workers Comp Insurance",
+      "description": "Initial consultation for workers' compensation insurance. We evaluate your business needs and connect you with the best coverage options.",
+      "benefits": [
+        "Coverage needs assessment",
+        "Available options comparison",
+        "Application assistance",
+        "State requirement compliance"
+      ],
+      "icon": "HardHat",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/workers-comp.jpg",
+      "imageAlt": "Workers compensation insurance",
+      "popular": false,
+      "bookable": true
+    },
+    {
+      "id": "general-liability-insurance",
+      "categoryId": "insurance-services",
+      "title": "General Liability Insurance",
+      "description": "Consultation to obtain general liability insurance for your business. Protect your company with the right coverage.",
+      "benefits": [
+        "Business risk analysis",
+        "Competitive quotes",
+        "Coverage selection guidance",
+        "Simplified application process"
+      ],
+      "icon": "Shield",
+      "durationMin": 60,
+      "priceEUR": 100,
+      "image": "images/micasa/liability-insurance.jpg",
+      "imageAlt": "General liability insurance for businesses",
+      "popular": false,
+      "bookable": true
+    }
+  ]
+}
