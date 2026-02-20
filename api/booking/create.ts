@@ -1,174 +1,292 @@
-import { google } from 'googleapis';
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { google } from 'googleapis';
+import { Resend } from 'resend';
 
-const calendar = google.calendar('v3');
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const getCalendarClient = () => {
-  const privateKey = process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, '\n');
-  
-  if (!process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL) {
-    throw new Error('GOOGLE_SERVICE_ACCOUNT_EMAIL not configured');
-  }
-  
-  if (!privateKey) {
-    throw new Error('GOOGLE_PRIVATE_KEY not configured');
-  }
+const oauth2Client = new google.auth.OAuth2(
+  process.env.GOOGLE_CLIENT_ID,
+  process.env.GOOGLE_CLIENT_SECRET,
+  'http://localhost:8080/auth/google/callback'
+);
 
-  const auth = new google.auth.JWT({
-    email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-    key: privateKey,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
-  });
+oauth2Client.setCredentials({
+  refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
+});
 
-  return { calendar, auth };
-};
+const calendar = google.calendar({ version: 'v3', auth: oauth2Client });
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-  // CORS headers
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-
-  if (req.method === 'OPTIONS') {
-    return res.status(200).end();
-  }
-
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const {
+    bookingId,
+    serviceTitle,
+    dateTime,
+    duration,
+    email,
+    phone,
+    firstName,
+    lastName,
+    price,
+  } = req.body;
+
   try {
-    console.log('📝 Received booking request:', JSON.stringify(req.body, null, 2));
-
-    const { serviceId, serviceTitle, dateTime, duration, email, phone, firstName, lastName } = req.body;
-
-    // Validaciones
-    if (!serviceId || !dateTime || !email || !phone || !firstName || !lastName) {
-      console.error('❌ Missing required fields');
-      return res.status(400).json({ 
-        success: false,
-        error: { code: 'MISSING_FIELDS', message: 'All fields are required' } 
-      });
-    }
-
-    console.log('✅ Validation passed, initializing Google Calendar client...');
-
-    const { auth } = getCalendarClient();
-
-    console.log('✅ Google Calendar client initialized');
-
-    // Calcular end time
     const startTime = new Date(dateTime);
     const endTime = new Date(startTime.getTime() + duration * 60000);
 
-    console.log(`📅 Booking time: ${startTime.toISOString()} to ${endTime.toISOString()}`);
-
-    // Re-check availability (anti double-booking)
-    console.log('🔍 Checking availability...');
-    const freeBusyResponse = await calendar.freebusy.query({
-      auth,
-      requestBody: {
-        timeMin: startTime.toISOString(),
-        timeMax: endTime.toISOString(),
-        items: [{ id: process.env.GOOGLE_CALENDAR_POOL_ID }],
-      },
-    });
-
-    const busySlots = freeBusyResponse.data.calendars?.[process.env.GOOGLE_CALENDAR_POOL_ID!]?.busy || [];
-
-    if (busySlots.length > 0) {
-      console.warn('⚠️ Slot no longer available:', busySlots);
-      return res.status(409).json({
-        success: false,
-        error: {
-          code: 'SLOT_NO_LONGER_AVAILABLE',
-          message: 'This time slot was just booked by someone else. Please select another time.',
-        },
-      });
-    }
-
-    console.log('✅ Slot is available, creating event...');
-
-    // Crear evento en Google Calendar
+    // ── 1. Google Calendar Event ──────────────────────────────
     const event = await calendar.events.insert({
-      auth,
-      calendarId: process.env.GOOGLE_CALENDAR_POOL_ID?.trim(),
+      calendarId: process.env.GOOGLE_CALENDAR_ID || 'primary',
       requestBody: {
-        summary: `${serviceTitle} – ${firstName} ${lastName}`,
-        description: `📧 Email: ${email}\n📱 Tel: ${phone}\n\n🎯 Servicio: ${serviceTitle}\n💰 Cliente: ${firstName} ${lastName}`,
+        summary: `📋 ${serviceTitle} — ${firstName} ${lastName}`,
+        description: [
+          `🆔 Booking ID: ${bookingId}`,
+          `📌 Service: ${serviceTitle}`,
+          `👤 Client: ${firstName} ${lastName}`,
+          `📧 Email: ${email}`,
+          `📱 Phone: ${phone}`,
+          `💵 Consultation Fee: $${price}`,
+          ``,
+          `📍 MiCasa MultiService, LLC`,
+          `204 N Park Ave, Suites 100-102`,
+          `Sanford, FL 32771`,
+          `📞 +1 (757) 773-9271`,
+        ].join('\n'),
+        location: '204 N Park Ave Suites 100-102, Sanford, FL 32771',
         start: {
           dateTime: startTime.toISOString(),
-          timeZone: 'Europe/Madrid',
+          timeZone: 'America/New_York',
         },
         end: {
           dateTime: endTime.toISOString(),
-          timeZone: 'Europe/Madrid',
+          timeZone: 'America/New_York',
         },
-        transparency: 'opaque', // Bloquea el slot
+        attendees: [{ email }],
+        reminders: {
+          useDefault: false,
+          overrides: [
+            { method: 'email', minutes: 24 * 60 },
+            { method: 'popup', minutes: 30 },
+          ],
+        },
+        colorId: '7', // Turquoise/Peacock color in Google Calendar
       },
     });
 
-    const bookingId = `VNY-${Date.now().toString().slice(-8)}`;
-
-    // Enviar email de confirmación
-    try {
-    const emailDate = new Date(startTime).toLocaleDateString('es-ES', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
+    // ── 2. Email to Client ────────────────────────────────────
+    await resend.emails.send({
+      from: 'MiCasa MultiService <onboarding@resend.dev>',
+      to: email,
+      subject: `✅ Appointment Confirmed — ${serviceTitle}`,
+      html: clientEmailHTML({
+        firstName,
+        serviceTitle,
+        startTime,
+        duration,
+        price,
+        bookingId,
+      }),
     });
-    
-    const emailTime = new Date(startTime).toLocaleTimeString('es-ES', {
-        hour: '2-digit',
-        minute: '2-digit',
-    });
 
-    await fetch(`${process.env.VITE_APP_URL || ''}/api/booking/send-confirmation-email`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-        email,
+    // ── 3. Email to MiCasa Office ─────────────────────────────
+    await resend.emails.send({
+      from: 'MiCasa Booking System <onboarding@resend.dev>',
+      to: process.env.BUSINESS_EMAIL!,
+      subject: `🆕 New Appointment: ${serviceTitle} — ${firstName} ${lastName}`,
+      html: officeEmailHTML({
         firstName,
         lastName,
+        email,
+        phone,
         serviceTitle,
-        date: emailDate,
-        time: emailTime,
+        startTime,
+        duration,
+        price,
         bookingId,
-        price: req.body.price || '0',
-        }),
+      }),
     });
-    
-    console.log('✅ Confirmation email sent');
-    } catch (emailError) {
-    console.error('⚠️ Email sending failed (non-critical):', emailError);
-    // No fallar el booking si el email falla
-    }
-    console.log('✅ Event created successfully:', event.data.id);
 
     return res.status(200).json({
       success: true,
-      data: {
-        bookingId,
-        eventId: event.data.id,
-        message: 'Booking created successfully',
-      },
+      eventId: event.data.id,
+      eventLink: event.data.htmlLink,
     });
+
   } catch (error: any) {
-    console.error('❌ Error creating booking:', error);
-    console.error('Error details:', {
-      message: error.message,
-      code: error.code,
-      errors: error.errors,
-    });
-    
+    console.error('Booking creation error:', error);
     return res.status(500).json({
       success: false,
-      error: {
-        code: 'BOOKING_ERROR',
-        message: error.message || 'Failed to create booking',
-        details: process.env.NODE_ENV === 'development' ? error.stack : undefined,
-      },
+      error: { message: error.message },
     });
   }
+}
+
+// ── Email Templates ───────────────────────────────────────────
+
+function formatDateTime(date: Date): string {
+  return date.toLocaleString('en-US', {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZone: 'America/New_York',
+    timeZoneName: 'short',
+  });
+}
+
+function clientEmailHTML({ firstName, serviceTitle, startTime, duration, price, bookingId }: any) {
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family: Arial, sans-serif; background:#f5f5f5; margin:0; padding:20px;">
+  <div style="max-width:600px; margin:0 auto; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+    
+    <!-- Header -->
+    <div style="background:#1BBED7; padding:30px; text-align:center;">
+      <h1 style="color:white; margin:0; font-size:24px;">✅ Appointment Confirmed!</h1>
+      <p style="color:rgba(255,255,255,0.9); margin:8px 0 0;">MiCasa MultiService, LLC</p>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:30px;">
+      <p style="font-size:16px; color:#333;">Hello <strong>${firstName}</strong>,</p>
+      <p style="color:#555;">Your appointment has been successfully scheduled. Here are the details:</p>
+
+      <!-- Appointment Card -->
+      <div style="background:#f0fbfd; border-left:4px solid #1BBED7; border-radius:6px; padding:20px; margin:20px 0;">
+        <table style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="padding:8px 0; color:#666; width:40%;">📋 Service</td>
+            <td style="padding:8px 0; color:#333; font-weight:bold;">${serviceTitle}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#666;">📅 Date & Time</td>
+            <td style="padding:8px 0; color:#333; font-weight:bold;">${formatDateTime(startTime)}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#666;">⏱️ Duration</td>
+            <td style="padding:8px 0; color:#333;">${duration} minutes</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#666;">💵 Fee</td>
+            <td style="padding:8px 0; color:#333;">$${price} (pay at office)</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#666;">🆔 Booking ID</td>
+            <td style="padding:8px 0; color:#999; font-size:12px;">${bookingId}</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Location -->
+      <div style="background:#f9f9f9; border-radius:6px; padding:20px; margin:20px 0;">
+        <h3 style="color:#1BBED7; margin:0 0 10px;">📍 Our Location</h3>
+        <p style="margin:0; color:#555;">MiCasa MultiService, LLC<br>
+        204 N Park Ave, Suites 100-102<br>
+        Sanford, FL 32771<br>
+        📞 +1 (757) 773-9271</p>
+      </div>
+
+      <!-- Cancellation Policy -->
+      <div style="background:#fff8e6; border-radius:6px; padding:15px; margin:20px 0;">
+        <p style="margin:0; color:#856404; font-size:14px;">
+          ⚠️ <strong>Cancellation Policy:</strong> If you need to reschedule or cancel, 
+          please contact us at least 24 hours in advance.
+        </p>
+      </div>
+
+      <p style="color:#555;">We look forward to seeing you!</p>
+      <p style="color:#555;">— The MiCasa MultiService Team</p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#f5f5f5; padding:20px; text-align:center; border-top:1px solid #eee;">
+      <p style="margin:0; color:#999; font-size:12px;">
+        MiCasa MultiService, LLC | 204 N Park Ave | Sanford, FL 32771<br>
+        <a href="http://micasaworks4u.com" style="color:#1BBED7;">micasaworks4u.com</a> | 
+        +1 (757) 773-9271
+      </p>
+    </div>
+  </div>
+</body>
+</html>`;
+}
+
+function officeEmailHTML({ firstName, lastName, email, phone, serviceTitle, startTime, duration, price, bookingId }: any) {
+  return `
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="font-family: Arial, sans-serif; background:#f5f5f5; margin:0; padding:20px;">
+  <div style="max-width:600px; margin:0 auto; background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+    
+    <!-- Header -->
+    <div style="background:#1BBED7; padding:30px; text-align:center;">
+      <h1 style="color:white; margin:0; font-size:24px;">🆕 New Appointment Booked</h1>
+      <p style="color:rgba(255,255,255,0.9); margin:8px 0 0;">MiCasa Booking System</p>
+    </div>
+
+    <!-- Body -->
+    <div style="padding:30px;">
+      <p style="font-size:16px; color:#333;">A new appointment has been scheduled:</p>
+
+      <!-- Appointment Details -->
+      <div style="background:#f0fbfd; border-left:4px solid #1BBED7; border-radius:6px; padding:20px; margin:20px 0;">
+        <h3 style="color:#1BBED7; margin:0 0 15px;">📋 Appointment Details</h3>
+        <table style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="padding:8px 0; color:#666; width:40%;">Service</td>
+            <td style="padding:8px 0; color:#333; font-weight:bold;">${serviceTitle}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#666;">Date & Time</td>
+            <td style="padding:8px 0; color:#333; font-weight:bold;">${formatDateTime(startTime)}</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#666;">Duration</td>
+            <td style="padding:8px 0; color:#333;">${duration} minutes</td>
+          </tr>
+          <tr>
+            <td style="padding:8px 0; color:#333; font-weight:bold;">Fee</td>
+            <td style="padding:8px 0; color:#1BBED7; font-weight:bold; font-size:18px;">$${price}</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Client Details -->
+      <div style="background:#f9f9f9; border-radius:6px; padding:20px; margin:20px 0;">
+        <h3 style="color:#333; margin:0 0 15px;">👤 Client Information</h3>
+        <table style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="padding:6px 0; color:#666; width:40%;">Name</td>
+            <td style="padding:6px 0; color:#333; font-weight:bold;">${firstName} ${lastName}</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0; color:#666;">Email</td>
+            <td style="padding:6px 0; color:#333;">${email}</td>
+          </tr>
+          <tr>
+            <td style="padding:6px 0; color:#666;">Phone</td>
+            <td style="padding:6px 0; color:#333;">${phone}</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Booking ID -->
+      <p style="color:#999; font-size:12px; text-align:center;">Booking ID: ${bookingId}</p>
+    </div>
+
+    <!-- Footer -->
+    <div style="background:#f5f5f5; padding:20px; text-align:center; border-top:1px solid #eee;">
+      <p style="margin:0; color:#999; font-size:12px;">MiCasa Booking System — Automated Notification</p>
+    </div>
+  </div>
+</body>
+</html>`;
 }

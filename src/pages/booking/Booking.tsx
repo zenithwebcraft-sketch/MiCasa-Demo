@@ -47,7 +47,8 @@ const Booking = () => {
     setIsSubmitting(true);
 
     try {
-      const dateTime = `${formData.date}T${formData.time}:00+01:00`;
+      const dateTime = `${formData.date}T${formData.time}:00-05:00`; // Eastern Time (Florida)
+
 
       const response = await createBooking({
         serviceId: service.id,
