@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { es, enUS } from 'date-fns/locale';
-import { generateTimeSlots, isSlotBusy } from '@/lib/booking/dateUtils';
+import { generateTimeSlots } from '@/lib/booking/dateUtils';
 import { fetchAvailability } from '@/lib/booking/api';
 import { Clock, Loader2 } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
@@ -28,20 +28,17 @@ export const DateTimeSelection = ({
   const [date, setDate] = useState<Date | undefined>(
     selectedDate ? new Date(selectedDate) : undefined
   );
-  const [busyTimes, setBusyTimes] = useState<{ start: string; end: string }[]>([]);
+  const [slots, setSlots] = useState<{ time: string; available: boolean }[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   const dateStr = date ? format(date, 'yyyy-MM-dd') : '';
   const timeSlots = dateStr ? generateTimeSlots(dateStr) : [];
-  
-  // Select locale based on language
   const locale = language === 'es' ? es : enUS;
 
-  // Fetch availability when date changes
   useEffect(() => {
     if (!dateStr) {
-      setBusyTimes([]);
+      setSlots([]);
       return;
     }
 
@@ -49,19 +46,19 @@ export const DateTimeSelection = ({
       setLoading(true);
       setError('');
       try {
-        const availability = await fetchAvailability(dateStr, serviceId);
-        setBusyTimes(availability.busyTimes || []);
+        const availability = await fetchAvailability(dateStr, serviceId, serviceDuration);
+        setSlots(availability.slots || []);
       } catch (err: any) {
         console.error('Error loading availability:', err);
         setError(translations.booking.dateTime.error);
-        setBusyTimes([]);
+        setSlots([]);
       } finally {
         setLoading(false);
       }
     };
 
     loadAvailability();
-  }, [dateStr, serviceId, translations.booking.dateTime.error]);
+  }, [dateStr, serviceId, serviceDuration, translations.booking.dateTime.error]);
 
   const handleDateSelect = (newDate: Date | undefined) => {
     setDate(newDate);
@@ -74,8 +71,9 @@ export const DateTimeSelection = ({
   };
 
   const isTimeSlotAvailable = (time: string): boolean => {
-    if (!dateStr) return false;
-    return !isSlotBusy(dateStr, time, serviceDuration, busyTimes);
+    if (!dateStr || slots.length === 0) return true;
+    const slot = slots.find(s => s.time === time);
+    return slot ? slot.available : true;
   };
 
   return (
@@ -132,7 +130,7 @@ export const DateTimeSelection = ({
               </p>
             ) : loading ? (
               <div className="flex items-center justify-center py-8">
-                <Loader2 className="h-6 w-6 animate-spin text-pink-600" />
+                <Loader2 className="h-6 w-6 animate-spin text-primary" />
                 <span className="ml-2">{translations.booking.dateTime.loading}</span>
               </div>
             ) : error ? (
