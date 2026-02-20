@@ -1305,3 +1305,170 @@ text
 □ Verificar SEO (meta tags, title)
 □ Entregar al cliente
 ¡Listo para crear experiencias web increíbles! 🚀
+
+---
+
+## 🚀 Implementación MiCasa MultiService, LLC
+
+> Documentación de la implementación real de la plantilla para el cliente
+> MiCasa MultiService, LLC — Sanford, Florida. Febrero 2026.
+
+### Estado del Proyecto
+
+| Módulo | Estado | Notas |
+|--------|--------|-------|
+| Landing Page | ✅ Completo | Deploy en Vercel |
+| Sistema de Booking | ✅ Completo | End-to-end funcional |
+| Firebase Firestore | ✅ Conectado | Guardando citas |
+| Google Calendar | ✅ Conectado | OAuth2 |
+| Emails (Resend) | ✅ Funcionando | Cliente + Oficina |
+| Cron Renovación Token | ✅ Activo | Cada 6 días |
+| Admin Panel | ⏳ Pendiente | Próxima fase |
+| Fotos Staff Reales | ⏳ Pendiente | En proceso |
+
+---
+
+### Variables de Entorno Requeridas
+
+#### Frontend (prefijo VITE_)
+```bash
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+```
+
+#### Backend/Serverless (sin prefijo VITE_)
+```bash
+# Google Calendar OAuth2
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_REFRESH_TOKEN=
+GOOGLE_CALENDAR_ID=
+
+# Resend Email
+RESEND_API_KEY=
+BUSINESS_EMAIL=
+
+# Vercel Cron (renovación automática de token)
+VERCEL_TOKEN=
+VERCEL_PROJECT_ID=
+VERCEL_TEAM_ID=
+CRON_SECRET=
+```
+
+---
+
+### Archivos Serverless API
+
+```
+api/
+├── booking/
+│   ├── availability.ts   → Consulta slots disponibles en Google Calendar
+│   └── create.ts         → Crea evento + guarda en Firestore + envía emails
+└── cron/
+    └── refresh-token.ts  → Renueva el Google OAuth token automáticamente
+```
+
+---
+
+### Cron Jobs (vercel.json)
+
+```json
+{
+  "crons": [
+    {
+      "path": "/api/cron/refresh-token?secret=CRON_SECRET",
+      "schedule": "0 9 */6 * *"
+    }
+  ]
+}
+```
+
+Ejecuta cada 6 días a las 9am para renovar el Google OAuth token
+antes de que expire (los tokens en modo Testing expiran cada 7 días).
+
+---
+
+### Flujo Completo del Sistema de Citas
+
+```
+Cliente selecciona servicio
+    ↓
+Consulta slots disponibles → api/booking/availability.ts
+    ↓ (Google Calendar API)
+Cliente selecciona fecha/hora → email → datos personales
+    ↓
+api/booking/create.ts
+    ├── 1. Guarda en Firebase Firestore
+    ├── 2. Crea evento en Google Calendar
+    ├── 3. Envía email de confirmación al cliente (Resend)
+    └── 4. Envía notificación a la oficina (Resend)
+    ↓
+BookingConfirmation.tsx → Muestra resumen con Booking ID (MCM-XXXXXXXX)
+```
+
+---
+
+### Personalización Aplicada
+
+#### Colores
+```typescript
+// tailwind.config.ts
+colors: {
+  primary: {
+    DEFAULT: "#1BBED7",  // Turquesa MiCasa
+  },
+  // Booking usa lila suave
+  // ring-[#e6d7ff] border-[#e6d7ff] para cards seleccionadas
+  // text-[#9b7fd4] para precios y acentos
+}
+```
+
+#### Moneda
+- Campo `priceEUR` en JSON mantiene el nombre por razones técnicas
+- Se muestra como `$` en la UI (no €)
+- `booking.json` → `currency: "USD"`
+
+#### Textos adaptados (i18n)
+- "Stylist" → "Consultant"
+- "No Preference" → "Any available"
+- "Payment at the salon" → "Payment at the office"
+- "Choose the treatment" → "Select the service you'd like to schedule"
+
+---
+
+### Notas para Producción
+
+1. **Google OAuth Token**: Actualmente en modo Testing (expira cada 7 días).
+   Para producción: publicar la app en Google Cloud Console →
+   OAuth consent screen → "Publish App"
+
+2. **Resend Domain**: Verificar dominio `micasaworks4u.com` en Resend
+   para enviar desde `noreply@micasaworks4u.com`
+
+3. **Admin Panel**: Pendiente de implementar para que Irma pueda
+   ver y gestionar las citas desde Firebase Firestore
+
+4. **Staff Photos**: Reemplazar placeholders con fotos reales en
+   `public/images/micasa/` y actualizar rutas en `staff.json`
+
+---
+
+### Troubleshooting Específico de MiCasa
+
+**Error: `invalid_grant` en Google Calendar**
+→ El refresh token expiró. Generar uno nuevo con el archivo
+  `google-auth.html` y actualizar `GOOGLE_REFRESH_TOKEN` en Vercel.
+
+**Error: `projects/undefined/databases` en Firebase**
+→ Faltan las variables `VITE_FIREBASE_*` en Vercel Environment Variables.
+
+**Error 404 en `/booking`**
+→ Verificar que `App.tsx` tenga `<Route path="/booking" element={<Booking />} />`
+
+**Slots no aparecen / Error 500 en availability**
+→ Verificar variables `GOOGLE_*` en Vercel (sin prefijo VITE_).
+→ Revisar Vercel Logs para el error específico.
