@@ -76,38 +76,39 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       },
     });
 
-    // ── 2. Email to Client ────────────────────────────────────
-    await resend.emails.send({
-      from: 'MiCasa MultiService <onboarding@resend.dev>',
-      to: email,
-      subject: `✅ Appointment Confirmed — ${serviceTitle}`,
-      html: clientEmailHTML({
-        firstName,
-        serviceTitle,
-        startTime,
-        duration,
-        price,
-        bookingId,
-      }),
-    });
+// ── 2. Email to Client ────────────────────────────────────
+await resend.emails.send({
+  from: 'MiCasa MultiService <onboarding@resend.dev>',
+  to: process.env.BUSINESS_EMAIL!, // ← Temporal: siempre al email de testing
+  subject: `✅ [CLIENT COPY] Appointment Confirmed — ${serviceTitle}`,
+  html: clientEmailHTML({
+    firstName,
+    serviceTitle,
+    startTime,
+    duration,
+    price,
+    bookingId,
+  }),
+});
 
-    // ── 3. Email to MiCasa Office ─────────────────────────────
-    await resend.emails.send({
-      from: 'MiCasa Booking System <onboarding@resend.dev>',
-      to: process.env.BUSINESS_EMAIL!,
-      subject: `🆕 New Appointment: ${serviceTitle} — ${firstName} ${lastName}`,
-      html: officeEmailHTML({
-        firstName,
-        lastName,
-        email,
-        phone,
-        serviceTitle,
-        startTime,
-        duration,
-        price,
-        bookingId,
-      }),
-    });
+// ── 3. Email to MiCasa Office ─────────────────────────────
+await resend.emails.send({
+  from: 'MiCasa Booking System <onboarding@resend.dev>',
+  to: process.env.BUSINESS_EMAIL!,
+  subject: `🆕 [OFFICE COPY] New Appointment: ${serviceTitle} — ${firstName} ${lastName}`,
+  html: officeEmailHTML({
+    firstName,
+    lastName,
+    email,
+    phone,
+    serviceTitle,
+    startTime,
+    duration,
+    price,
+    bookingId,
+  }),
+});
+
 
     return res.status(200).json({
       success: true,
